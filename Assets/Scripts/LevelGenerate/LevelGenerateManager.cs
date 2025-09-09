@@ -43,16 +43,16 @@ public class LevelGenerateManager : MonoBehaviour
     public void SaveData()
     {
         string json = JsonConvert.SerializeObject(levelData, Formatting.Indented);
-        File.WriteAllText(Path.Combine(Application.persistentDataPath, "LevelData.json"), json);
+        File.WriteAllText(Player.Data.dataPath, json);
         
-        Debug.Log("Saved LevelData.json: " + Path.Combine(Application.persistentDataPath, "LevelData.json"));
+        Debug.Log("Saved LevelData.json: " + Player.Data.dataPath);
     }
 
     public List<LevelData> LoadData()
     {
-        if (!File.Exists(Path.Combine(Application.persistentDataPath, "LevelData.json")))
+        if (!File.Exists(Player.Data.dataPath))
         {
-            Debug.LogWarning($"Save file not found, creating new one at: {Path.Combine(Application.persistentDataPath, "LevelData.json")}");
+            Debug.LogWarning($"Save file not found, creating new one at: {Player.Data.dataPath}");
 
             // Create default data
             List<LevelData> newData = new List<LevelData>();
@@ -60,12 +60,12 @@ public class LevelGenerateManager : MonoBehaviour
 
             // Save it immediately
             string newJson = JsonConvert.SerializeObject(newData, Formatting.Indented);
-            File.WriteAllText(Path.Combine(Application.persistentDataPath, "LevelData.json"), newJson);
+            File.WriteAllText(Player.Data.dataPath, newJson);
 
             return newData;
         }
 
-        string json = File.ReadAllText(Path.Combine(Application.persistentDataPath, "LevelData.json"));
+        string json = File.ReadAllText(Player.Data.dataPath);
         return JsonConvert.DeserializeObject<List<LevelData>>(json);;
     }
 

@@ -21,6 +21,8 @@ public class Cell : MonoBehaviour, IPointerEnterHandler, IPointerDownHandler
 
     private Color normalColor = new Color(0.8627451f, 0.8666667f, 0.8784314f);
 
+    private Color instructionColor = new Color(0.9490196f, 0.7490196f, 0.6588235f, 0.5f);
+
     [SerializeField] private RectTransform baseImage;
     [SerializeField] private RectTransform filledRightAngle;
     [SerializeField] private RectTransform filledStraightAngle;
@@ -103,7 +105,14 @@ public class Cell : MonoBehaviour, IPointerEnterHandler, IPointerDownHandler
 
         isFilled = false;
 
-        image.color = !instructionShown ? normalColor : new Color(normalColor.r, normalColor.g, normalColor.b, .5f);
+        if (instructionShown)
+        {
+            image.color = instructionColor;
+        }
+        else
+        {
+            image.color = !instructionShown ? normalColor : new Color(normalColor.r, normalColor.g, normalColor.b, .5f);
+        }
     }
 
     public void SetUnFilledAnimationCompleted()
@@ -116,11 +125,9 @@ public class Cell : MonoBehaviour, IPointerEnterHandler, IPointerDownHandler
         if (isDisable) return;
         if (isBase) return;
 
-        isNext = false;
-        isFilled = false;
         instructionShown = true;
 
-        image.color = new Color(normalColor.r, normalColor.g, normalColor.b, .5f);
+        image.color = instructionColor;
     }
 
     public void SetBase()
@@ -158,7 +165,7 @@ public class Cell : MonoBehaviour, IPointerEnterHandler, IPointerDownHandler
         }
     }
 
-    private void TriggerAction()
+    public void TriggerAction()
     {
         if (isDisable) return;
         if (isBase)

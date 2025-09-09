@@ -4,6 +4,8 @@ using UnityEngine;
 [System.Serializable]
 public class PlayerData
 {
+    public readonly string dataPath = "Assets/LevelData/LevelData.json";
+    
     public int gold = 0;
     public int lastGold = 0;
     public int lives = 5;

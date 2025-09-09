@@ -164,6 +164,7 @@ GameObject:
   - component: {fileID: 3709996488744751619}
   - component: {fileID: 3028414387717924979}
   - component: {fileID: 1364088031678193717}
+  - component: {fileID: 7813935286698345573}
   m_Layer: 5
   m_Name: Cell
   m_TagString: Untagged
@@ -326,6 +327,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!225 &7813935286698345573
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5918172392334737202}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &6621824729532623559
 GameObject:
   m_ObjectHideFlags: 0

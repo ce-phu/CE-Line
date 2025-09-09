@@ -61,9 +61,10 @@ public class GameManager : MonoBehaviour
 
     private void LoadData()
     {
-        if (!File.Exists(Path.Combine(Application.persistentDataPath, "LevelData.json"))) return;
+        Debug.Log(Player.Data.dataPath);
+        if (!File.Exists(Player.Data.dataPath)) return;
 
-        string json = File.ReadAllText(Path.Combine(Application.persistentDataPath, "LevelData.json"));
+        string json = File.ReadAllText(Player.Data.dataPath);
 
         masterLevelData = JsonConvert.DeserializeObject<List<LevelData>>(json);
         levelData = masterLevelData[Player.Data.currentStage];
@@ -77,9 +78,9 @@ public class GameManager : MonoBehaviour
     private void SaveData()
     {
         string json = JsonConvert.SerializeObject(masterLevelData, Formatting.Indented);
-        File.WriteAllText(Path.Combine(Application.persistentDataPath, "LevelData.json"), json);
+        File.WriteAllText(Player.Data.dataPath, json);
 
-        Debug.Log("Saved LevelData.json: " + Path.Combine(Application.persistentDataPath, "LevelData.json"));
+        Debug.Log("Saved LevelData.json: " + Player.Data.dataPath);
     }
 
     private void DisplayLevel()
@@ -166,13 +167,13 @@ public class GameManager : MonoBehaviour
 
         IEnumerator Execute()
         {
+            yield return new WaitForSeconds(0.25f);
+            
             foreach (Cell item in cellStack)
             {
                 item.isDisable = true;
             }
-            
-            yield return new WaitForSeconds(0.5f);
-            
+
             foreach (Cell item in cellStack)
             {
                 item.GetComponent<Cell>().Out();
@@ -180,11 +181,17 @@ public class GameManager : MonoBehaviour
 
             cell[baseCell[0], baseCell[1]].Out();
 
+            yield return new WaitForSeconds(0.25f);
+
             totalCell = 0;
             cellStack.Clear();
             instructionStepCurrentIndex = -1;
-            yield return new WaitForSeconds(0.1f);
             Ingame.SetNextLevel(true);
+            
+            foreach (Transform child in cellParent.transform)
+            {
+                Destroy(child.gameObject);
+            }
         }
 
         //Save Solved Steps
@@ -480,29 +487,34 @@ public class GameManager : MonoBehaviour
 
     private void _ShowInstructions()
     {
-        // masterLevelData[Player.Data.currentStage].solvedSteps;
-        int remainingInstructionStep = maxInstructionStep - 1;
-        int row = 0;
-        int col = 0;
+        StartCoroutine(Execute());
 
-        if (instructionStepCurrentIndex == -1)
+        IEnumerator Execute()
         {
-            instructionStepCurrentIndex = masterLevelData[Player.Data.currentStage].solvedSteps.Count - 1;
-        }
+            // masterLevelData[Player.Data.currentStage].solvedSteps;
+            int row = 0;
+            int col = 0;
 
-        for (int i = instructionStepCurrentIndex; i >= 0; i--)
-        {
-            row = masterLevelData[Player.Data.currentStage].solvedSteps[i].row;
-            col = masterLevelData[Player.Data.currentStage].solvedSteps[i].column;
-            cell[row, col].SetInstructionShown();
+            if (instructionStepCurrentIndex == -1)
+            {
+                instructionStepCurrentIndex = masterLevelData[Player.Data.currentStage].solvedSteps.Count - 1;
+            }
 
-            if (remainingInstructionStep == 0)
-                break;
+            int maxStep = instructionStepCurrentIndex - maxInstructionStep > 0
+                ? instructionStepCurrentIndex - maxInstructionStep
+                : 0;
 
-            if (i - remainingInstructionStep > 0)
-                remainingInstructionStep--;
-
-            instructionStepCurrentIndex = i;
+            for (int i = instructionStepCurrentIndex; i >= maxStep; i--)
+            {
+                row = masterLevelData[Player.Data.currentStage].solvedSteps[i].row;
+                col = masterLevelData[Player.Data.currentStage].solvedSteps[i].column;
+                yield return new WaitForEndOfFrame();
+                yield return new WaitForSeconds(0.025f);
+                cell[row, col].SetInstructionShown();
+                cell[row, col].TriggerAction();
+                
+                instructionStepCurrentIndex = i;
+            }
         }
     }
 }
