@@ -1,0 +1,138 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Gem_mat
+  m_Shader: {fileID: 4800000, guid: 8a0c34e69652bd24d9ea38ba2b2cdb0b, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords:
+  - _APPLY_EMISSIONMAP
+  - _APPLY_METALLIC_ROUGHNESSMAP
+  - _APPLY_NORMALMAP
+  - _APPLY_OCCLUSIONMAP
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 1
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BumpMap:
+        m_Texture: {fileID: 2800000, guid: 16add6c2d5836084f824b4f28af3bc7d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailAlbedoMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailNormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 2800000, guid: cd2f579d47747444ab9f658ae41a4d2e, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _GoldenItemTexture1:
+        m_Texture: {fileID: 2800000, guid: 2ab608b5a70dd1841b81d2733401b2a0, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _GoldenItemTexture2:
+        m_Texture: {fileID: 2800000, guid: eeb3edc39f2a5254b9b3d38e6e82df15, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _GoldenItemTexture3:
+        m_Texture: {fileID: 2800000, guid: 51682d30ebcc6b5409991af5bda0f88b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: cd2f579d47747444ab9f658ae41a4d2e, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MatcapTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 2800000, guid: ff908d1ebe5815d4aa60fee20b87806a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
+        m_Texture: {fileID: 2800000, guid: 4514e2079999d504e8c656457a625c7e, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ParallaxMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SpecGlossMap:
+        m_Texture: {fileID: 2800000, guid: c397688c2b815584fbbf67dd9c92d54d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _BlendDst: 10
+    - _BlendSrc: 5
+    - _BumpScale: 1
+    - _ColorMapBrightness: 0.476
+    - _CullMode: 2
+    - _Cutoff: 0.5
+    - _DetailNormalMapScale: 1
+    - _DstBlend: 0
+    - _GlossMapScale: 1
+    - _Glossiness: 0.244
+    - _GlossyReflections: 1
+    - _Hide: 0
+    - _IndexGoldTexture: -1
+    - _LightAmbientRate: 0
+    - _LightAttenuationThreshold: -0.49
+    - _LightShadeBottom: 0.024
+    - _LightShadeColorRate: 2.68
+    - _LightShadeHardness: 17.9
+    - _Metallic: 0.318
+    - _Mode: 0
+    - _NormalScale: 0
+    - _OcclusionStrength: 1
+    - _OutLineBlendRateAmbient: 0
+    - _OutLineBlendRateColorMap: 0
+    - _OutlineMaxPixel: 5.5
+    - _OutlineSize: 0
+    - _Parallax: 0.02
+    - _ReflectionRate: 1.58
+    - _RimLightColorPower: 2.22
+    - _RimLightHardness: 4.6
+    - _RimLightRate: 1
+    - _RimLightSize: 2.88
+    - _SizeItemX: 0
+    - _SizeItemY: 0
+    - _SmoothnessTextureChannel: 0
+    - _SpecularColorRate: 0
+    - _SpecularHardness: 87.9
+    - _SpecularHighlights: 1
+    - _SrcBlend: 1
+    - _StencilComp: 0
+    - _StencilPass: 0
+    - _StencilRef: 0
+    - _UVSec: 0
+    - _ZTest: 4
+    - _ZWrite: 1
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
+    - _HideColor: {r: 0.3529412, g: 0.49411765, b: 0.4745098, a: 1}
+    - _OutLineBaseColor: {r: 1, g: 1, b: 1, a: 1}
+  m_BuildTextureStacks: []
