@@ -28,8 +28,9 @@ public class GameManager : MonoBehaviour
     private int[] baseCell = new int[2];
 
     private int totalCell = 0;
+    
     private int maxInstructionStep = 5;
-    private int instructionStepCurrentIndex = -1;
+    private int instructionStepThatStop = -1;
 
     private void Awake()
     {
@@ -143,7 +144,7 @@ public class GameManager : MonoBehaviour
 
         totalCell = 0;
         cellStack.Clear();
-        instructionStepCurrentIndex = -1;
+        instructionStepThatStop = -1;
     }
 
     private void LevelWin()
@@ -168,7 +169,7 @@ public class GameManager : MonoBehaviour
         IEnumerator Execute()
         {
             yield return new WaitForSeconds(0.25f);
-            
+
             foreach (Cell item in cellStack)
             {
                 item.isDisable = true;
@@ -185,9 +186,9 @@ public class GameManager : MonoBehaviour
 
             totalCell = 0;
             cellStack.Clear();
-            instructionStepCurrentIndex = -1;
+            instructionStepThatStop = -1;
             Ingame.SetNextLevel(true);
-            
+
             foreach (Transform child in cellParent.transform)
             {
                 Destroy(child.gameObject);
@@ -491,30 +492,25 @@ public class GameManager : MonoBehaviour
 
         IEnumerator Execute()
         {
-            // masterLevelData[Player.Data.currentStage].solvedSteps;
-            int row = 0;
-            int col = 0;
-
-            if (instructionStepCurrentIndex == -1)
+            if (instructionStepThatStop == -1)
             {
-                instructionStepCurrentIndex = masterLevelData[Player.Data.currentStage].solvedSteps.Count - 1;
+                instructionStepThatStop = masterLevelData[Player.Data.currentStage].solvedSteps.Count;
             }
 
-            int maxStep = instructionStepCurrentIndex - maxInstructionStep > 0
-                ? instructionStepCurrentIndex - maxInstructionStep
-                : 0;
+            instructionStepThatStop = instructionStepThatStop - maxInstructionStep >= 0 ? instructionStepThatStop - maxInstructionStep : 0; 
 
-            for (int i = instructionStepCurrentIndex; i >= maxStep; i--)
+            yield return new WaitForEndOfFrame();
+            
+            for (int i = masterLevelData[Player.Data.currentStage].solvedSteps.Count - 1; i >= instructionStepThatStop; i--)
             {
-                row = masterLevelData[Player.Data.currentStage].solvedSteps[i].row;
-                col = masterLevelData[Player.Data.currentStage].solvedSteps[i].column;
-                yield return new WaitForEndOfFrame();
-                yield return new WaitForSeconds(0.025f);
-                cell[row, col].SetInstructionShown();
+                int row = masterLevelData[Player.Data.currentStage].solvedSteps[i].row;
+                int col = masterLevelData[Player.Data.currentStage].solvedSteps[i].column;
+
                 cell[row, col].TriggerAction();
-                
-                instructionStepCurrentIndex = i;
+                yield return new WaitForSeconds(0.05f);
+                cell[row, col].SetInstructionShown();
             }
+            yield return null;
         }
     }
 }

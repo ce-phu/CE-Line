@@ -9,7 +9,6 @@ public class Cell : MonoBehaviour, IPointerEnterHandler, IPointerDownHandler
     public bool isFilled = false;
     public bool isBase = false;
     public bool isDisable = false;
-    public bool isActive = false;
     public bool instructionShown = false;
 
     public Image image;
