@@ -492,14 +492,15 @@ public class GameManager : MonoBehaviour
 
         IEnumerator Execute()
         {
+            cell[baseCell[0], baseCell[1]].TriggerAction();
+            yield return new WaitForSeconds(0.05f);
+            
             if (instructionStepThatStop == -1)
             {
                 instructionStepThatStop = masterLevelData[Player.Data.currentStage].solvedSteps.Count;
             }
 
             instructionStepThatStop = instructionStepThatStop - maxInstructionStep >= 0 ? instructionStepThatStop - maxInstructionStep : 0; 
-
-            yield return new WaitForEndOfFrame();
             
             for (int i = masterLevelData[Player.Data.currentStage].solvedSteps.Count - 1; i >= instructionStepThatStop; i--)
             {
