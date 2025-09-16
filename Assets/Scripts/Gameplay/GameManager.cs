@@ -19,18 +19,20 @@ public class GameManager : MonoBehaviour
 
     private List<LevelData> masterLevelData = new List<LevelData>();
     private LevelData levelData = new LevelData();
-    private Cell[,] cell = new Cell[7, 7];
+    public static Cell[,] cell = new Cell[7, 7];
 
     public static bool isPointerDown = false;
 
     private Stack<Cell> cellStack = new Stack<Cell>();
     private List<Cell> adjacentCells = new List<Cell>();
-    private int[] baseCell = new int[2];
+    public static int[] baseCell = new int[2];
 
-    private int totalCell = 0;
-    
+    public static int totalCell = 0; //Does not include the based cell
+
     private int maxInstructionStep = 5;
     private int instructionStepThatStop = -1;
+
+    public static int debugLevel = -1;
 
     private void Awake()
     {
@@ -68,12 +70,13 @@ public class GameManager : MonoBehaviour
         string json = File.ReadAllText(Player.Data.dataPath);
 
         masterLevelData = JsonConvert.DeserializeObject<List<LevelData>>(json);
-        levelData = masterLevelData[Player.Data.currentStage];
+        levelData = masterLevelData[debugLevel != -1 ? debugLevel : Player.Data.currentStage];
 
-        foreach (LevelData.SolvedStep solvedStep in masterLevelData[Player.Data.currentStage].solvedSteps)
-        {
-            Debug.Log(solvedStep.row + " " + solvedStep.column);
-        }
+        // foreach (LevelData.SolvedStep solvedStep in masterLevelData[
+        //              debugLevel != -1 ? debugLevel : Player.Data.currentStage].solvedSteps)
+        // {
+        //     Debug.Log(solvedStep.row + " " + solvedStep.column);
+        // }
     }
 
     private void SaveData()
@@ -129,7 +132,7 @@ public class GameManager : MonoBehaviour
                     cell[i, j].In();
                 }
             }
-
+            
             CheckAdjacentCell(cell[baseCell[0], baseCell[1]]);
             yield return new WaitForEndOfFrame();
         }
@@ -151,14 +154,15 @@ public class GameManager : MonoBehaviour
     {
 #if CE_DEBUG
 
-        masterLevelData[Player.Data.currentStage].solvedSteps.Clear();
+        masterLevelData[debugLevel != -1 ? debugLevel : Player.Data.currentStage].solvedSteps.Clear();
         foreach (Cell item in cellStack)
         {
-            masterLevelData[Player.Data.currentStage].solvedSteps.Add(new LevelData.SolvedStep()
-            {
-                row = item.row,
-                column = item.col,
-            });
+            masterLevelData[debugLevel != -1 ? debugLevel : Player.Data.currentStage].solvedSteps.Add(
+                new LevelData.SolvedStep()
+                {
+                    row = item.row,
+                    column = item.col,
+                });
         }
 
         SaveData();
@@ -168,12 +172,13 @@ public class GameManager : MonoBehaviour
 
         IEnumerator Execute()
         {
-            yield return new WaitForSeconds(0.25f);
-
             foreach (Cell item in cellStack)
             {
                 item.isDisable = true;
             }
+
+            yield return new WaitForSeconds(0.25f);
+
 
             foreach (Cell item in cellStack)
             {
@@ -214,12 +219,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public static void CheckAdjacentCell(Cell tempCell)
+    public static List<Cell> CheckAdjacentCell(Cell tempCell)
     {
-        Instance._CheckAdjacentCell(tempCell);
+        return Instance._CheckAdjacentCell(tempCell);
     }
 
-    private void _CheckAdjacentCell(Cell tempCell)
+    private List<Cell> _CheckAdjacentCell(Cell tempCell)
     {
         foreach (Cell item in adjacentCells)
         {
@@ -264,11 +269,49 @@ public class GameManager : MonoBehaviour
         {
             item.SetAdjacent();
         }
+
+        return adjacentCells;
+    }
+
+    public static List<Cell> CheckAdjacentWithCoord(Cell tempCell)
+    {
+        return Instance._CheckAdjacentWithCoord(tempCell);
+    }
+
+    private List<Cell> _CheckAdjacentWithCoord(Cell _tempCell)
+    {
+        List<Cell> adjacentCells = new List<Cell>();
+
+        if (_tempCell.row - 1 >= 0)
+        {
+            if (!cell[_tempCell.row - 1, _tempCell.col].isBase && !cell[_tempCell.row - 1, _tempCell.col].isDisable)
+                adjacentCells.Add(cell[_tempCell.row - 1, _tempCell.col]);
+        }
+
+        if (_tempCell.row + 1 < levelData.row)
+        {
+            if (!cell[_tempCell.row + 1, _tempCell.col].isBase && !cell[_tempCell.row + 1, _tempCell.col].isDisable)
+                adjacentCells.Add(cell[_tempCell.row + 1, _tempCell.col]);
+        }
+
+        if (_tempCell.col - 1 >= 0)
+        {
+            if (!cell[_tempCell.row, _tempCell.col - 1].isBase && !cell[_tempCell.row, _tempCell.col - 1].isDisable)
+                adjacentCells.Add(cell[_tempCell.row, _tempCell.col - 1]);
+        }
+
+        if (_tempCell.col + 1 < levelData.column)
+        {
+            if (!cell[_tempCell.row, _tempCell.col + 1].isBase && !cell[_tempCell.row, _tempCell.col + 1].isDisable)
+                adjacentCells.Add(cell[_tempCell.row, _tempCell.col + 1]);
+        }
+
+        return adjacentCells;
     }
 
     public static void ResetAllCell()
     {
-        foreach (Cell item in Instance.cell)
+        foreach (Cell item in cell)
         {
             item.SetNormal();
         }
@@ -494,24 +537,38 @@ public class GameManager : MonoBehaviour
         {
             cell[baseCell[0], baseCell[1]].TriggerAction();
             yield return new WaitForSeconds(0.05f);
-            
+
             if (instructionStepThatStop == -1)
             {
-                instructionStepThatStop = masterLevelData[Player.Data.currentStage].solvedSteps.Count;
+                instructionStepThatStop = masterLevelData[debugLevel != -1 ? debugLevel : Player.Data.currentStage]
+                    .solvedSteps.Count;
             }
 
-            instructionStepThatStop = instructionStepThatStop - maxInstructionStep >= 0 ? instructionStepThatStop - maxInstructionStep : 0; 
-            
-            for (int i = masterLevelData[Player.Data.currentStage].solvedSteps.Count - 1; i >= instructionStepThatStop; i--)
+            instructionStepThatStop = instructionStepThatStop - maxInstructionStep >= 0
+                ? instructionStepThatStop - maxInstructionStep
+                : 0;
+
+            for (int i = masterLevelData[debugLevel != -1 ? debugLevel : Player.Data.currentStage].solvedSteps.Count -
+                         1;
+                 i >= instructionStepThatStop;
+                 i--)
             {
-                int row = masterLevelData[Player.Data.currentStage].solvedSteps[i].row;
-                int col = masterLevelData[Player.Data.currentStage].solvedSteps[i].column;
+                int row = masterLevelData[debugLevel != -1 ? debugLevel : Player.Data.currentStage].solvedSteps[i].row;
+                int col = masterLevelData[debugLevel != -1 ? debugLevel : Player.Data.currentStage].solvedSteps[i]
+                    .column;
 
                 cell[row, col].TriggerAction();
                 yield return new WaitForSeconds(0.05f);
                 cell[row, col].SetInstructionShown();
             }
+
             yield return null;
         }
+    }
+
+    public static void ShowAutoSolving()
+    {
+        Debug.Log("ok");
+        AutoSolverManager.StartSolve(cell[baseCell[0], baseCell[1]]);
     }
 }

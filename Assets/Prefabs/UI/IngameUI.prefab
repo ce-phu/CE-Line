@@ -156,6 +156,7 @@ MonoBehaviour:
   replayButton: {fileID: 655621996068137655}
   stageText: {fileID: 4575259909843584137}
   animator: {fileID: 4110684696823007689}
+  debugLevel: {fileID: 555518402131851339}
 --- !u!1 &259906475001458779
 GameObject:
   m_ObjectHideFlags: 0

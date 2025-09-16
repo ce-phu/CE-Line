@@ -17,6 +17,8 @@ public class IngameUIManager : MonoBehaviour
 
     [SerializeField] private Animator animator;
 
+    [SerializeField] private TMP_InputField debugLevel;
+
     private bool isCompleteAnimation = false;
 
     private void Awake( )
@@ -41,6 +43,7 @@ public class IngameUIManager : MonoBehaviour
         pauseButton.onClick.AddListener( Pause );
         backHomeButton.onClick.AddListener( BackHome );
         replayButton.onClick.AddListener( Replay );
+        debugLevel.onSubmit.AddListener(LoadDebugLevel);
         
         animator.Play( "In" );
         // LifeTimeManager.In(  );
@@ -62,6 +65,7 @@ public class IngameUIManager : MonoBehaviour
         pauseButton.onClick.RemoveListener( Pause );
         backHomeButton.onClick.RemoveListener( BackHome );
         replayButton.onClick.RemoveListener( Replay );
+        debugLevel.onSubmit.RemoveListener(LoadDebugLevel);
 
         animator.Play( "Out" );
         // LifeTimeManager.Out(  );
@@ -114,6 +118,8 @@ public class IngameUIManager : MonoBehaviour
         SoundManager.PlaySE( SE.UI_BTNCLICK );
         
         // ReplayUIManager.In(ReplayUIManager.ReplayUITypes.GOTOHOME);
+        GameManager.ShowAutoSolving();
+        SystemManager.excludeButton = false;
     }    
     
     
@@ -133,6 +139,12 @@ public class IngameUIManager : MonoBehaviour
         // ReplayUIManager.In(ReplayUIManager.ReplayUITypes.REPLAY);
         GameManager.ShowInstructions();
         SystemManager.excludeButton = false;
+    }
+
+    private void LoadDebugLevel(string text)
+    {
+        GameManager.debugLevel = int.Parse(text);
+        GameManager.Init();
     }
 
     public void HardLevelAnimationCompleted()

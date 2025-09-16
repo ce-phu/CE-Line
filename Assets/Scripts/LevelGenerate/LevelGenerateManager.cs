@@ -6,12 +6,14 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class LevelGenerateManager : MonoBehaviour
 {
+    public readonly string dataPath = "Assets/LevelData/LevelData.json";
     [SerializeField] private TMP_InputField cellPrefab;
     [SerializeField] private Transform cellParent;
-    
+
     [SerializeField] private TMP_InputField stageInput;
     [SerializeField] private TMP_InputField columnInput;
     [SerializeField] private TMP_InputField rowInput;
@@ -19,40 +21,51 @@ public class LevelGenerateManager : MonoBehaviour
     [SerializeField] private Button showStageButton;
     [SerializeField] private Button createStageButton;
     [SerializeField] private Button saveStageButton;
+    [SerializeField] private Button startGenerateButton;
 
     public List<LevelData> levelData = new List<LevelData>();
     private TMP_InputField[,] cells = new TMP_InputField[9, 7];
     private int currentStage = 0;
-    
+
     int rowSize = -1;
     int colSize = -1;
-    
+
+    public static LevelGenerateManager Instance;
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+    }
+
     private void Start()
     {
         stageInput.onSubmit.AddListener(ShowStage);
         columnInput.onSubmit.AddListener(SaveStage);
         rowInput.onSubmit.AddListener(SaveStage);
-        
+
         showStageButton.onClick.AddListener(ShowStage);
-        createStageButton.onClick.AddListener(CreateStage); 
+        createStageButton.onClick.AddListener(CreateStage);
         saveStageButton.onClick.AddListener(SaveStage);
-        
+
         levelData = LoadData();
     }
 
     public void SaveData()
     {
         string json = JsonConvert.SerializeObject(levelData, Formatting.Indented);
-        File.WriteAllText(Player.Data.dataPath, json);
-        
-        Debug.Log("Saved LevelData.json: " + Player.Data.dataPath);
+        File.WriteAllText(dataPath, json);
+
+        Debug.Log("Saved LevelData.json: " + dataPath);
     }
 
     public List<LevelData> LoadData()
     {
-        if (!File.Exists(Player.Data.dataPath))
+        if (!File.Exists(dataPath))
         {
-            Debug.LogWarning($"Save file not found, creating new one at: {Player.Data.dataPath}");
+            Debug.LogWarning($"Save file not found, creating new one at: {dataPath}");
 
             // Create default data
             List<LevelData> newData = new List<LevelData>();
@@ -60,34 +73,35 @@ public class LevelGenerateManager : MonoBehaviour
 
             // Save it immediately
             string newJson = JsonConvert.SerializeObject(newData, Formatting.Indented);
-            File.WriteAllText(Player.Data.dataPath, newJson);
+            File.WriteAllText(dataPath, newJson);
 
             return newData;
         }
 
-        string json = File.ReadAllText(Player.Data.dataPath);
-        return JsonConvert.DeserializeObject<List<LevelData>>(json);;
+        string json = File.ReadAllText(dataPath);
+        return JsonConvert.DeserializeObject<List<LevelData>>(json);
+        ;
     }
 
     private void ShowStage(string stage)
     {
         ShowStage();
     }
-    
+
     private void ShowStage()
     {
         if (stageInput.text == String.Empty) return;
         currentStage = int.Parse(stageInput.text);
-        
+
         columnInput.text = levelData[currentStage].column.ToString();
         rowInput.text = levelData[currentStage].row.ToString();
-        
+
         ClearCells();
         for (int i = 0; i < 9; i++)
         {
             for (int j = 0; j < 7; j++)
-            {                
-                cells[i,j] = Instantiate(cellPrefab, cellParent);
+            {
+                cells[i, j] = Instantiate(cellPrefab, cellParent);
             }
         }
 
@@ -102,46 +116,47 @@ public class LevelGenerateManager : MonoBehaviour
                 for (int j = 0; j < 7; j++)
                 {
                     cells[i, j].text = levelData[currentStage].size[i, j].ToString();
-                    cells[i,j].onValueChanged.AddListener(SetColor);
-                    cells[i,j].onValueChanged.AddListener(SetSize);
-                    cells[i,j].GetComponent<SlotPrefab>().action.AddListener(SetValue);
+                    cells[i, j].onValueChanged.AddListener(SetColor);
+                    cells[i, j].onValueChanged.AddListener(SetSize);
+                    cells[i, j].GetComponent<SlotPrefab>().action.AddListener(SetValue);
                 }
-            }   
+            }
         }
-        
+
         SetColor();
         SetSize();
     }
-    
+
     private void CreateStage()
     {
         levelData.Add(new LevelData());
         stageInput.text = (levelData.Count - 1).ToString();
         currentStage = (levelData.Count - 1);
-        
+
         columnInput.text = levelData[currentStage].column.ToString();
         rowInput.text = levelData[currentStage].row.ToString();
-        
+
         ClearCells();
         for (int i = 0; i < 9; i++)
         {
             for (int j = 0; j < 7; j++)
             {
-                cells[i,j] = Instantiate(cellPrefab, cellParent);;
+                cells[i, j] = Instantiate(cellPrefab, cellParent);
+                ;
             }
         }
-        
+
         for (int i = 0; i < 9; i++)
         {
             for (int j = 0; j < 7; j++)
             {
                 cells[i, j].text = levelData[currentStage].size[i, j].ToString();
-                cells[i,j].onValueChanged.AddListener(SetColor);
-                cells[i,j].onValueChanged.AddListener(SetSize);
-                cells[i,j].GetComponent<SlotPrefab>().action.AddListener(SetValue);
+                cells[i, j].onValueChanged.AddListener(SetColor);
+                cells[i, j].onValueChanged.AddListener(SetSize);
+                cells[i, j].GetComponent<SlotPrefab>().action.AddListener(SetValue);
             }
-        }   
-        
+        }
+
         SetColor();
         SetSize();
     }
@@ -154,10 +169,10 @@ public class LevelGenerateManager : MonoBehaviour
     private void SaveStage()
     {
         currentStage = int.Parse(stageInput.text);
-        
+
         levelData[currentStage].column = int.Parse(columnInput.text);
         levelData[currentStage].row = int.Parse(rowInput.text);
-        
+
         for (int i = 0; i < 9; i++)
         {
             for (int j = 0; j < 7; j++)
@@ -165,7 +180,7 @@ public class LevelGenerateManager : MonoBehaviour
                 levelData[currentStage].size[i, j] = int.Parse(cells[i, j].text);
             }
         }
-        
+
         SaveData();
     }
 
@@ -183,11 +198,11 @@ public class LevelGenerateManager : MonoBehaviour
     {
         SetColor();
     }
-    
+
     private void SetColor()
     {
-        Debug.Log("SetColor");
-        
+        // Debug.Log("SetColor");
+
         foreach (TMP_InputField item in cells)
         {
             if (item.text == "0")
@@ -197,14 +212,13 @@ public class LevelGenerateManager : MonoBehaviour
             else if (item.text == "2")
                 item.gameObject.GetComponent<Image>().color = Color.red;
         }
-
     }
 
     private void SetSize(string size)
     {
         SetSize();
     }
-    
+
     private void SetSize()
     {
         rowSize = -1;
@@ -228,7 +242,7 @@ public class LevelGenerateManager : MonoBehaviour
                 }
             }
         }
-        
+
         columnInput.text = (colSize + 1).ToString();
         rowInput.text = (rowSize + 1).ToString();
     }

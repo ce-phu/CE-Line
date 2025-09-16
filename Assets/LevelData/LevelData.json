@@ -378,27 +378,27 @@
     "solvedSteps": [
       {
         "row": 2,
+        "column": 2
+      },
+      {
+        "row": 2,
+        "column": 1
+      },
+      {
+        "row": 2,
         "column": 0
-      },
-      {
-        "row": 2,
-        "column": 1
-      },
-      {
-        "row": 2,
-        "column": 2
-      },
-      {
-        "row": 1,
-        "column": 2
-      },
-      {
-        "row": 1,
-        "column": 1
       },
       {
         "row": 0,
         "column": 1
+      },
+      {
+        "row": 1,
+        "column": 1
+      },
+      {
+        "row": 1,
+        "column": 2
       }
     ]
   },
@@ -502,16 +502,16 @@
         "column": 1
       },
       {
-        "row": 1,
-        "column": 1
-      },
-      {
-        "row": 1,
-        "column": 2
-      },
-      {
         "row": 0,
         "column": 2
+      },
+      {
+        "row": 1,
+        "column": 2
+      },
+      {
+        "row": 1,
+        "column": 1
       },
       {
         "row": 0,
@@ -28138,7 +28138,88 @@
     ],
     "row": 5,
     "column": 5,
-    "solvedSteps": []
+    "solvedSteps": [
+      {
+        "row": 4,
+        "column": 3
+      },
+      {
+        "row": 3,
+        "column": 3
+      },
+      {
+        "row": 2,
+        "column": 3
+      },
+      {
+        "row": 1,
+        "column": 3
+      },
+      {
+        "row": 1,
+        "column": 2
+      },
+      {
+        "row": 1,
+        "column": 1
+      },
+      {
+        "row": 2,
+        "column": 1
+      },
+      {
+        "row": 3,
+        "column": 1
+      },
+      {
+        "row": 4,
+        "column": 1
+      },
+      {
+        "row": 4,
+        "column": 0
+      },
+      {
+        "row": 3,
+        "column": 0
+      },
+      {
+        "row": 2,
+        "column": 0
+      },
+      {
+        "row": 1,
+        "column": 0
+      },
+      {
+        "row": 0,
+        "column": 0
+      },
+      {
+        "row": 0,
+        "column": 1
+      },
+      {
+        "row": 0,
+        "column": 2
+      },
+      {
+        "row": 0,
+        "column": 3
+      },
+      {
+        "row": 0,
+        "column": 4
+      },
+      {
+        "row": 1,
+        "column": 4
+      },
+      {
+        "row": 2,
+        "column": 4
+      }
+    ]
   },
   {
     "size": [
@@ -28226,7 +28307,88 @@
     ],
     "row": 5,
     "column": 5,
-    "solvedSteps": []
+    "solvedSteps": [
+      {
+        "row": 3,
+        "column": 0
+      },
+      {
+        "row": 4,
+        "column": 0
+      },
+      {
+        "row": 4,
+        "column": 1
+      },
+      {
+        "row": 4,
+        "column": 2
+      },
+      {
+        "row": 4,
+        "column": 3
+      },
+      {
+        "row": 4,
+        "column": 4
+      },
+      {
+        "row": 3,
+        "column": 4
+      },
+      {
+        "row": 3,
+        "column": 3
+      },
+      {
+        "row": 2,
+        "column": 3
+      },
+      {
+        "row": 1,
+        "column": 3
+      },
+      {
+        "row": 1,
+        "column": 4
+      },
+      {
+        "row": 0,
+        "column": 4
+      },
+      {
+        "row": 0,
+        "column": 3
+      },
+      {
+        "row": 0,
+        "column": 2
+      },
+      {
+        "row": 1,
+        "column": 2
+      },
+      {
+        "row": 2,
+        "column": 2
+      },
+      {
+        "row": 2,
+        "column": 1
+      },
+      {
+        "row": 1,
+        "column": 1
+      },
+      {
+        "row": 1,
+        "column": 0
+      },
+      {
+        "row": 0,
+        "column": 0
+      }
+    ]
   },
   {
     "size": [
@@ -28314,7 +28476,88 @@
     ],
     "row": 5,
     "column": 5,
-    "solvedSteps": []
+    "solvedSteps": [
+      {
+        "row": 4,
+        "column": 0
+      },
+      {
+        "row": 4,
+        "column": 1
+      },
+      {
+        "row": 4,
+        "column": 2
+      },
+      {
+        "row": 3,
+        "column": 2
+      },
+      {
+        "row": 3,
+        "column": 1
+      },
+      {
+        "row": 2,
+        "column": 1
+      },
+      {
+        "row": 2,
+        "column": 0
+      },
+      {
+        "row": 1,
+        "column": 0
+      },
+      {
+        "row": 0,
+        "column": 0
+      },
+      {
+        "row": 0,
+        "column": 1
+      },
+      {
+        "row": 0,
+        "column": 2
+      },
+      {
+        "row": 0,
+        "column": 3
+      },
+      {
+        "row": 0,
+        "column": 4
+      },
+      {
+        "row": 1,
+        "column": 4
+      },
+      {
+        "row": 2,
+        "column": 4
+      },
+      {
+        "row": 3,
+        "column": 4
+      },
+      {
+        "row": 3,
+        "column": 3
+      },
+      {
+        "row": 2,
+        "column": 3
+      },
+      {
+        "row": 1,
+        "column": 3
+      },
+      {
+        "row": 1,
+        "column": 2
+      }
+    ]
   },
   {
     "size": [
@@ -28402,7 +28645,88 @@
     ],
     "row": 5,
     "column": 5,
-    "solvedSteps": []
+    "solvedSteps": [
+      {
+        "row": 0,
+        "column": 0
+      },
+      {
+        "row": 1,
+        "column": 0
+      },
+      {
+        "row": 2,
+        "column": 0
+      },
+      {
+        "row": 3,
+        "column": 0
+      },
+      {
+        "row": 4,
+        "column": 0
+      },
+      {
+        "row": 4,
+        "column": 1
+      },
+      {
+        "row": 3,
+        "column": 1
+      },
+      {
+        "row": 3,
+        "column": 2
+      },
+      {
+        "row": 4,
+        "column": 2
+      },
+      {
+        "row": 4,
+        "column": 3
+      },
+      {
+        "row": 4,
+        "column": 4
+      },
+      {
+        "row": 3,
+        "column": 4
+      },
+      {
+        "row": 2,
+        "column": 4
+      },
+      {
+        "row": 1,
+        "column": 4
+      },
+      {
+        "row": 1,
+        "column": 3
+      },
+      {
+        "row": 0,
+        "column": 3
+      },
+      {
+        "row": 0,
+        "column": 2
+      },
+      {
+        "row": 1,
+        "column": 2
+      },
+      {
+        "row": 2,
+        "column": 2
+      },
+      {
+        "row": 2,
+        "column": 3
+      }
+    ]
   },
   {
     "size": [
@@ -28490,7 +28814,88 @@
     ],
     "row": 5,
     "column": 5,
-    "solvedSteps": []
+    "solvedSteps": [
+      {
+        "row": 3,
+        "column": 4
+      },
+      {
+        "row": 2,
+        "column": 4
+      },
+      {
+        "row": 2,
+        "column": 3
+      },
+      {
+        "row": 1,
+        "column": 3
+      },
+      {
+        "row": 1,
+        "column": 4
+      },
+      {
+        "row": 0,
+        "column": 4
+      },
+      {
+        "row": 0,
+        "column": 3
+      },
+      {
+        "row": 0,
+        "column": 2
+      },
+      {
+        "row": 1,
+        "column": 2
+      },
+      {
+        "row": 1,
+        "column": 1
+      },
+      {
+        "row": 0,
+        "column": 1
+      },
+      {
+        "row": 0,
+        "column": 0
+      },
+      {
+        "row": 1,
+        "column": 0
+      },
+      {
+        "row": 2,
+        "column": 0
+      },
+      {
+        "row": 2,
+        "column": 1
+      },
+      {
+        "row": 3,
+        "column": 1
+      },
+      {
+        "row": 3,
+        "column": 2
+      },
+      {
+        "row": 4,
+        "column": 2
+      },
+      {
+        "row": 4,
+        "column": 1
+      },
+      {
+        "row": 4,
+        "column": 0
+      }
+    ]
   },
   {
     "size": [
@@ -28578,7 +28983,88 @@
     ],
     "row": 5,
     "column": 5,
-    "solvedSteps": []
+    "solvedSteps": [
+      {
+        "row": 0,
+        "column": 0
+      },
+      {
+        "row": 0,
+        "column": 1
+      },
+      {
+        "row": 1,
+        "column": 1
+      },
+      {
+        "row": 1,
+        "column": 2
+      },
+      {
+        "row": 2,
+        "column": 2
+      },
+      {
+        "row": 2,
+        "column": 1
+      },
+      {
+        "row": 2,
+        "column": 0
+      },
+      {
+        "row": 3,
+        "column": 0
+      },
+      {
+        "row": 3,
+        "column": 1
+      },
+      {
+        "row": 4,
+        "column": 1
+      },
+      {
+        "row": 4,
+        "column": 2
+      },
+      {
+        "row": 3,
+        "column": 2
+      },
+      {
+        "row": 3,
+        "column": 3
+      },
+      {
+        "row": 4,
+        "column": 3
+      },
+      {
+        "row": 4,
+        "column": 4
+      },
+      {
+        "row": 3,
+        "column": 4
+      },
+      {
+        "row": 2,
+        "column": 4
+      },
+      {
+        "row": 1,
+        "column": 4
+      },
+      {
+        "row": 1,
+        "column": 3
+      },
+      {
+        "row": 0,
+        "column": 3
+      }
+    ]
   },
   {
     "size": [
@@ -28666,7 +29152,88 @@
     ],
     "row": 5,
     "column": 5,
-    "solvedSteps": []
+    "solvedSteps": [
+      {
+        "row": 4,
+        "column": 3
+      },
+      {
+        "row": 3,
+        "column": 3
+      },
+      {
+        "row": 3,
+        "column": 4
+      },
+      {
+        "row": 2,
+        "column": 4
+      },
+      {
+        "row": 1,
+        "column": 4
+      },
+      {
+        "row": 0,
+        "column": 4
+      },
+      {
+        "row": 0,
+        "column": 3
+      },
+      {
+        "row": 1,
+        "column": 3
+      },
+      {
+        "row": 2,
+        "column": 3
+      },
+      {
+        "row": 2,
+        "column": 2
+      },
+      {
+        "row": 3,
+        "column": 2
+      },
+      {
+        "row": 3,
+        "column": 1
+      },
+      {
+        "row": 4,
+        "column": 1
+      },
+      {
+        "row": 4,
+        "column": 0
+      },
+      {
+        "row": 3,
+        "column": 0
+      },
+      {
+        "row": 2,
+        "column": 0
+      },
+      {
+        "row": 2,
+        "column": 1
+      },
+      {
+        "row": 1,
+        "column": 1
+      },
+      {
+        "row": 0,
+        "column": 1
+      },
+      {
+        "row": 0,
+        "column": 0
+      }
+    ]
   },
   {
     "size": [
@@ -28754,7 +29321,88 @@
     ],
     "row": 5,
     "column": 5,
-    "solvedSteps": []
+    "solvedSteps": [
+      {
+        "row": 0,
+        "column": 4
+      },
+      {
+        "row": 1,
+        "column": 4
+      },
+      {
+        "row": 2,
+        "column": 4
+      },
+      {
+        "row": 2,
+        "column": 3
+      },
+      {
+        "row": 1,
+        "column": 3
+      },
+      {
+        "row": 1,
+        "column": 2
+      },
+      {
+        "row": 0,
+        "column": 2
+      },
+      {
+        "row": 0,
+        "column": 1
+      },
+      {
+        "row": 0,
+        "column": 0
+      },
+      {
+        "row": 1,
+        "column": 0
+      },
+      {
+        "row": 1,
+        "column": 1
+      },
+      {
+        "row": 2,
+        "column": 1
+      },
+      {
+        "row": 2,
+        "column": 0
+      },
+      {
+        "row": 3,
+        "column": 0
+      },
+      {
+        "row": 4,
+        "column": 0
+      },
+      {
+        "row": 4,
+        "column": 1
+      },
+      {
+        "row": 4,
+        "column": 2
+      },
+      {
+        "row": 4,
+        "column": 3
+      },
+      {
+        "row": 3,
+        "column": 3
+      },
+      {
+        "row": 3,
+        "column": 2
+      }
+    ]
   },
   {
     "size": [
@@ -28842,7 +29490,88 @@
     ],
     "row": 5,
     "column": 5,
-    "solvedSteps": []
+    "solvedSteps": [
+      {
+        "row": 3,
+        "column": 0
+      },
+      {
+        "row": 3,
+        "column": 1
+      },
+      {
+        "row": 4,
+        "column": 1
+      },
+      {
+        "row": 4,
+        "column": 2
+      },
+      {
+        "row": 4,
+        "column": 3
+      },
+      {
+        "row": 4,
+        "column": 4
+      },
+      {
+        "row": 3,
+        "column": 4
+      },
+      {
+        "row": 3,
+        "column": 3
+      },
+      {
+        "row": 2,
+        "column": 3
+      },
+      {
+        "row": 2,
+        "column": 4
+      },
+      {
+        "row": 1,
+        "column": 4
+      },
+      {
+        "row": 1,
+        "column": 3
+      },
+      {
+        "row": 0,
+        "column": 3
+      },
+      {
+        "row": 0,
+        "column": 2
+      },
+      {
+        "row": 0,
+        "column": 1
+      },
+      {
+        "row": 0,
+        "column": 0
+      },
+      {
+        "row": 1,
+        "column": 0
+      },
+      {
+        "row": 1,
+        "column": 1
+      },
+      {
+        "row": 2,
+        "column": 1
+      },
+      {
+        "row": 2,
+        "column": 2
+      }
+    ]
   },
   {
     "size": [
@@ -28930,7 +29659,88 @@
     ],
     "row": 5,
     "column": 5,
-    "solvedSteps": []
+    "solvedSteps": [
+      {
+        "row": 4,
+        "column": 2
+      },
+      {
+        "row": 4,
+        "column": 3
+      },
+      {
+        "row": 3,
+        "column": 3
+      },
+      {
+        "row": 3,
+        "column": 4
+      },
+      {
+        "row": 2,
+        "column": 4
+      },
+      {
+        "row": 1,
+        "column": 4
+      },
+      {
+        "row": 0,
+        "column": 4
+      },
+      {
+        "row": 0,
+        "column": 3
+      },
+      {
+        "row": 1,
+        "column": 3
+      },
+      {
+        "row": 2,
+        "column": 3
+      },
+      {
+        "row": 2,
+        "column": 2
+      },
+      {
+        "row": 1,
+        "column": 2
+      },
+      {
+        "row": 1,
+        "column": 1
+      },
+      {
+        "row": 0,
+        "column": 1
+      },
+      {
+        "row": 0,
+        "column": 0
+      },
+      {
+        "row": 1,
+        "column": 0
+      },
+      {
+        "row": 2,
+        "column": 0
+      },
+      {
+        "row": 2,
+        "column": 1
+      },
+      {
+        "row": 3,
+        "column": 1
+      },
+      {
+        "row": 3,
+        "column": 0
+      }
+    ]
   },
   {
     "size": [
@@ -29018,7 +29828,88 @@
     ],
     "row": 5,
     "column": 5,
-    "solvedSteps": []
+    "solvedSteps": [
+      {
+        "row": 1,
+        "column": 0
+      },
+      {
+        "row": 0,
+        "column": 0
+      },
+      {
+        "row": 0,
+        "column": 1
+      },
+      {
+        "row": 0,
+        "column": 2
+      },
+      {
+        "row": 0,
+        "column": 3
+      },
+      {
+        "row": 1,
+        "column": 3
+      },
+      {
+        "row": 1,
+        "column": 2
+      },
+      {
+        "row": 2,
+        "column": 2
+      },
+      {
+        "row": 2,
+        "column": 1
+      },
+      {
+        "row": 3,
+        "column": 1
+      },
+      {
+        "row": 3,
+        "column": 0
+      },
+      {
+        "row": 4,
+        "column": 0
+      },
+      {
+        "row": 4,
+        "column": 1
+      },
+      {
+        "row": 4,
+        "column": 2
+      },
+      {
+        "row": 3,
+        "column": 2
+      },
+      {
+        "row": 3,
+        "column": 3
+      },
+      {
+        "row": 2,
+        "column": 3
+      },
+      {
+        "row": 2,
+        "column": 4
+      },
+      {
+        "row": 3,
+        "column": 4
+      },
+      {
+        "row": 4,
+        "column": 4
+      }
+    ]
   },
   {
     "size": [
@@ -29106,7 +29997,88 @@
     ],
     "row": 5,
     "column": 5,
-    "solvedSteps": []
+    "solvedSteps": [
+      {
+        "row": 0,
+        "column": 1
+      },
+      {
+        "row": 0,
+        "column": 0
+      },
+      {
+        "row": 1,
+        "column": 0
+      },
+      {
+        "row": 2,
+        "column": 0
+      },
+      {
+        "row": 2,
+        "column": 1
+      },
+      {
+        "row": 2,
+        "column": 2
+      },
+      {
+        "row": 1,
+        "column": 2
+      },
+      {
+        "row": 1,
+        "column": 3
+      },
+      {
+        "row": 1,
+        "column": 4
+      },
+      {
+        "row": 2,
+        "column": 4
+      },
+      {
+        "row": 2,
+        "column": 3
+      },
+      {
+        "row": 3,
+        "column": 3
+      },
+      {
+        "row": 3,
+        "column": 4
+      },
+      {
+        "row": 4,
+        "column": 4
+      },
+      {
+        "row": 4,
+        "column": 3
+      },
+      {
+        "row": 4,
+        "column": 2
+      },
+      {
+        "row": 3,
+        "column": 2
+      },
+      {
+        "row": 3,
+        "column": 1
+      },
+      {
+        "row": 3,
+        "column": 0
+      },
+      {
+        "row": 4,
+        "column": 0
+      }
+    ]
   },
   {
     "size": [
@@ -29194,7 +30166,88 @@
     ],
     "row": 5,
     "column": 5,
-    "solvedSteps": []
+    "solvedSteps": [
+      {
+        "row": 1,
+        "column": 0
+      },
+      {
+        "row": 0,
+        "column": 0
+      },
+      {
+        "row": 0,
+        "column": 1
+      },
+      {
+        "row": 0,
+        "column": 2
+      },
+      {
+        "row": 1,
+        "column": 2
+      },
+      {
+        "row": 2,
+        "column": 2
+      },
+      {
+        "row": 2,
+        "column": 1
+      },
+      {
+        "row": 3,
+        "column": 1
+      },
+      {
+        "row": 3,
+        "column": 0
+      },
+      {
+        "row": 4,
+        "column": 0
+      },
+      {
+        "row": 4,
+        "column": 1
+      },
+      {
+        "row": 4,
+        "column": 2
+      },
+      {
+        "row": 3,
+        "column": 2
+      },
+      {
+        "row": 3,
+        "column": 3
+      },
+      {
+        "row": 4,
+        "column": 3
+      },
+      {
+        "row": 4,
+        "column": 4
+      },
+      {
+        "row": 3,
+        "column": 4
+      },
+      {
+        "row": 2,
+        "column": 4
+      },
+      {
+        "row": 2,
+        "column": 3
+      },
+      {
+        "row": 1,
+        "column": 3
+      }
+    ]
   },
   {
     "size": [
@@ -29282,7 +30335,88 @@
     ],
     "row": 5,
     "column": 5,
-    "solvedSteps": []
+    "solvedSteps": [
+      {
+        "row": 0,
+        "column": 0
+      },
+      {
+        "row": 1,
+        "column": 0
+      },
+      {
+        "row": 2,
+        "column": 0
+      },
+      {
+        "row": 2,
+        "column": 1
+      },
+      {
+        "row": 1,
+        "column": 1
+      },
+      {
+        "row": 1,
+        "column": 2
+      },
+      {
+        "row": 0,
+        "column": 2
+      },
+      {
+        "row": 0,
+        "column": 3
+      },
+      {
+        "row": 0,
+        "column": 4
+      },
+      {
+        "row": 1,
+        "column": 4
+      },
+      {
+        "row": 1,
+        "column": 3
+      },
+      {
+        "row": 2,
+        "column": 3
+      },
+      {
+        "row": 2,
+        "column": 2
+      },
+      {
+        "row": 3,
+        "column": 2
+      },
+      {
+        "row": 3,
+        "column": 1
+      },
+      {
+        "row": 4,
+        "column": 1
+      },
+      {
+        "row": 4,
+        "column": 2
+      },
+      {
+        "row": 4,
+        "column": 3
+      },
+      {
+        "row": 3,
+        "column": 3
+      },
+      {
+        "row": 3,
+        "column": 4
+      }
+    ]
   },
   {
     "size": [
@@ -29370,7 +30504,88 @@
     ],
     "row": 5,
     "column": 5,
-    "solvedSteps": []
+    "solvedSteps": [
+      {
+        "row": 0,
+        "column": 2
+      },
+      {
+        "row": 0,
+        "column": 3
+      },
+      {
+        "row": 0,
+        "column": 4
+      },
+      {
+        "row": 1,
+        "column": 4
+      },
+      {
+        "row": 1,
+        "column": 3
+      },
+      {
+        "row": 2,
+        "column": 3
+      },
+      {
+        "row": 2,
+        "column": 4
+      },
+      {
+        "row": 3,
+        "column": 4
+      },
+      {
+        "row": 3,
+        "column": 3
+      },
+      {
+        "row": 4,
+        "column": 3
+      },
+      {
+        "row": 4,
+        "column": 2
+      },
+      {
+        "row": 4,
+        "column": 1
+      },
+      {
+        "row": 4,
+        "column": 0
+      },
+      {
+        "row": 3,
+        "column": 0
+      },
+      {
+        "row": 3,
+        "column": 1
+      },
+      {
+        "row": 3,
+        "column": 2
+      },
+      {
+        "row": 2,
+        "column": 2
+      },
+      {
+        "row": 2,
+        "column": 1
+      },
+      {
+        "row": 1,
+        "column": 1
+      },
+      {
+        "row": 1,
+        "column": 0
+      }
+    ]
   },
   {
     "size": [
@@ -29458,7 +30673,88 @@
     ],
     "row": 5,
     "column": 5,
-    "solvedSteps": []
+    "solvedSteps": [
+      {
+        "row": 2,
+        "column": 0
+      },
+      {
+        "row": 1,
+        "column": 0
+      },
+      {
+        "row": 0,
+        "column": 0
+      },
+      {
+        "row": 0,
+        "column": 1
+      },
+      {
+        "row": 1,
+        "column": 1
+      },
+      {
+        "row": 1,
+        "column": 2
+      },
+      {
+        "row": 0,
+        "column": 2
+      },
+      {
+        "row": 0,
+        "column": 3
+      },
+      {
+        "row": 0,
+        "column": 4
+      },
+      {
+        "row": 1,
+        "column": 4
+      },
+      {
+        "row": 1,
+        "column": 3
+      },
+      {
+        "row": 2,
+        "column": 3
+      },
+      {
+        "row": 3,
+        "column": 3
+      },
+      {
+        "row": 3,
+        "column": 4
+      },
+      {
+        "row": 4,
+        "column": 4
+      },
+      {
+        "row": 4,
+        "column": 3
+      },
+      {
+        "row": 4,
+        "column": 2
+      },
+      {
+        "row": 4,
+        "column": 1
+      },
+      {
+        "row": 3,
+        "column": 1
+      },
+      {
+        "row": 3,
+        "column": 2
+      }
+    ]
   },
   {
     "size": [
@@ -29546,7 +30842,88 @@
     ],
     "row": 5,
     "column": 5,
-    "solvedSteps": []
+    "solvedSteps": [
+      {
+        "row": 4,
+        "column": 4
+      },
+      {
+        "row": 3,
+        "column": 4
+      },
+      {
+        "row": 3,
+        "column": 3
+      },
+      {
+        "row": 2,
+        "column": 3
+      },
+      {
+        "row": 2,
+        "column": 4
+      },
+      {
+        "row": 1,
+        "column": 4
+      },
+      {
+        "row": 0,
+        "column": 4
+      },
+      {
+        "row": 0,
+        "column": 3
+      },
+      {
+        "row": 1,
+        "column": 3
+      },
+      {
+        "row": 1,
+        "column": 2
+      },
+      {
+        "row": 1,
+        "column": 1
+      },
+      {
+        "row": 2,
+        "column": 1
+      },
+      {
+        "row": 3,
+        "column": 1
+      },
+      {
+        "row": 3,
+        "column": 2
+      },
+      {
+        "row": 4,
+        "column": 2
+      },
+      {
+        "row": 4,
+        "column": 1
+      },
+      {
+        "row": 4,
+        "column": 0
+      },
+      {
+        "row": 3,
+        "column": 0
+      },
+      {
+        "row": 2,
+        "column": 0
+      },
+      {
+        "row": 1,
+        "column": 0
+      }
+    ]
   },
   {
     "size": [
@@ -29634,7 +31011,88 @@
     ],
     "row": 5,
     "column": 5,
-    "solvedSteps": []
+    "solvedSteps": [
+      {
+        "row": 0,
+        "column": 1
+      },
+      {
+        "row": 0,
+        "column": 2
+      },
+      {
+        "row": 1,
+        "column": 2
+      },
+      {
+        "row": 2,
+        "column": 2
+      },
+      {
+        "row": 2,
+        "column": 1
+      },
+      {
+        "row": 2,
+        "column": 0
+      },
+      {
+        "row": 3,
+        "column": 0
+      },
+      {
+        "row": 4,
+        "column": 0
+      },
+      {
+        "row": 4,
+        "column": 1
+      },
+      {
+        "row": 4,
+        "column": 2
+      },
+      {
+        "row": 3,
+        "column": 2
+      },
+      {
+        "row": 3,
+        "column": 3
+      },
+      {
+        "row": 4,
+        "column": 3
+      },
+      {
+        "row": 4,
+        "column": 4
+      },
+      {
+        "row": 3,
+        "column": 4
+      },
+      {
+        "row": 2,
+        "column": 4
+      },
+      {
+        "row": 2,
+        "column": 3
+      },
+      {
+        "row": 1,
+        "column": 3
+      },
+      {
+        "row": 0,
+        "column": 3
+      },
+      {
+        "row": 0,
+        "column": 4
+      }
+    ]
   },
   {
     "size": [
@@ -29722,7 +31180,88 @@
     ],
     "row": 5,
     "column": 5,
-    "solvedSteps": []
+    "solvedSteps": [
+      {
+        "row": 0,
+        "column": 4
+      },
+      {
+        "row": 1,
+        "column": 4
+      },
+      {
+        "row": 1,
+        "column": 3
+      },
+      {
+        "row": 1,
+        "column": 2
+      },
+      {
+        "row": 0,
+        "column": 2
+      },
+      {
+        "row": 0,
+        "column": 1
+      },
+      {
+        "row": 0,
+        "column": 0
+      },
+      {
+        "row": 1,
+        "column": 0
+      },
+      {
+        "row": 1,
+        "column": 1
+      },
+      {
+        "row": 2,
+        "column": 1
+      },
+      {
+        "row": 2,
+        "column": 0
+      },
+      {
+        "row": 3,
+        "column": 0
+      },
+      {
+        "row": 3,
+        "column": 1
+      },
+      {
+        "row": 3,
+        "column": 2
+      },
+      {
+        "row": 2,
+        "column": 2
+      },
+      {
+        "row": 2,
+        "column": 3
+      },
+      {
+        "row": 2,
+        "column": 4
+      },
+      {
+        "row": 3,
+        "column": 4
+      },
+      {
+        "row": 3,
+        "column": 3
+      },
+      {
+        "row": 4,
+        "column": 3
+      }
+    ]
   },
   {
     "size": [
@@ -29810,7 +31349,88 @@
     ],
     "row": 5,
     "column": 5,
-    "solvedSteps": []
+    "solvedSteps": [
+      {
+        "row": 1,
+        "column": 0
+      },
+      {
+        "row": 0,
+        "column": 0
+      },
+      {
+        "row": 0,
+        "column": 1
+      },
+      {
+        "row": 0,
+        "column": 2
+      },
+      {
+        "row": 0,
+        "column": 3
+      },
+      {
+        "row": 1,
+        "column": 3
+      },
+      {
+        "row": 1,
+        "column": 2
+      },
+      {
+        "row": 2,
+        "column": 2
+      },
+      {
+        "row": 2,
+        "column": 1
+      },
+      {
+        "row": 3,
+        "column": 1
+      },
+      {
+        "row": 3,
+        "column": 0
+      },
+      {
+        "row": 4,
+        "column": 0
+      },
+      {
+        "row": 4,
+        "column": 1
+      },
+      {
+        "row": 4,
+        "column": 2
+      },
+      {
+        "row": 4,
+        "column": 3
+      },
+      {
+        "row": 4,
+        "column": 4
+      },
+      {
+        "row": 3,
+        "column": 4
+      },
+      {
+        "row": 2,
+        "column": 4
+      },
+      {
+        "row": 2,
+        "column": 3
+      },
+      {
+        "row": 3,
+        "column": 3
+      }
+    ]
   },
   {
     "size": [
@@ -30426,6 +32046,448 @@
     ],
     "row": 5,
     "column": 5,
+    "solvedSteps": [
+      {
+        "row": 3,
+        "column": 4
+      },
+      {
+        "row": 3,
+        "column": 3
+      },
+      {
+        "row": 4,
+        "column": 3
+      },
+      {
+        "row": 4,
+        "column": 2
+      },
+      {
+        "row": 4,
+        "column": 1
+      },
+      {
+        "row": 3,
+        "column": 1
+      },
+      {
+        "row": 3,
+        "column": 2
+      },
+      {
+        "row": 2,
+        "column": 2
+      },
+      {
+        "row": 2,
+        "column": 3
+      },
+      {
+        "row": 1,
+        "column": 3
+      },
+      {
+        "row": 1,
+        "column": 4
+      },
+      {
+        "row": 0,
+        "column": 4
+      },
+      {
+        "row": 0,
+        "column": 3
+      },
+      {
+        "row": 0,
+        "column": 2
+      },
+      {
+        "row": 1,
+        "column": 2
+      },
+      {
+        "row": 1,
+        "column": 1
+      },
+      {
+        "row": 2,
+        "column": 1
+      },
+      {
+        "row": 2,
+        "column": 0
+      },
+      {
+        "row": 1,
+        "column": 0
+      },
+      {
+        "row": 0,
+        "column": 0
+      }
+    ]
+  },
+  {
+    "size": [
+      [
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0
+      ],
+      [
+        1,
+        1,
+        1,
+        2,
+        1,
+        0,
+        0
+      ],
+      [
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0
+      ],
+      [
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0
+      ],
+      [
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "row": 5,
+    "column": 5,
+    "solvedSteps": [
+      {
+        "row": 0,
+        "column": 4
+      },
+      {
+        "row": 1,
+        "column": 4
+      },
+      {
+        "row": 2,
+        "column": 4
+      },
+      {
+        "row": 2,
+        "column": 3
+      },
+      {
+        "row": 3,
+        "column": 3
+      },
+      {
+        "row": 3,
+        "column": 4
+      },
+      {
+        "row": 4,
+        "column": 4
+      },
+      {
+        "row": 4,
+        "column": 3
+      },
+      {
+        "row": 4,
+        "column": 2
+      },
+      {
+        "row": 4,
+        "column": 1
+      },
+      {
+        "row": 4,
+        "column": 0
+      },
+      {
+        "row": 3,
+        "column": 0
+      },
+      {
+        "row": 2,
+        "column": 0
+      },
+      {
+        "row": 1,
+        "column": 0
+      },
+      {
+        "row": 0,
+        "column": 0
+      },
+      {
+        "row": 0,
+        "column": 1
+      },
+      {
+        "row": 1,
+        "column": 1
+      },
+      {
+        "row": 2,
+        "column": 1
+      },
+      {
+        "row": 3,
+        "column": 1
+      },
+      {
+        "row": 3,
+        "column": 2
+      },
+      {
+        "row": 2,
+        "column": 2
+      },
+      {
+        "row": 1,
+        "column": 2
+      },
+      {
+        "row": 0,
+        "column": 2
+      },
+      {
+        "row": 0,
+        "column": 3
+      }
+    ]
+  },
+  {
+    "size": [
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "row": 0,
+    "column": 0,
+    "solvedSteps": []
+  },
+  {
+    "size": [
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "row": 0,
+    "column": 0,
     "solvedSteps": []
   }
 ]

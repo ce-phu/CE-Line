@@ -1259,6 +1259,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1422399715}
   - component: {fileID: 1422399716}
+  - component: {fileID: 1422399717}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1298,6 +1299,18 @@ MonoBehaviour:
   cellPrefabs: {fileID: 3709996488744751619, guid: 51cc6396d87930e4d801820c86472042, type: 3}
   cellParent: {fileID: 843949749}
   levelDisplay: {fileID: 843949750}
+--- !u!114 &1422399717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1422399714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f736d54e1f532243bc4ef721a0dd7b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1479147748
 PrefabInstance:
   m_ObjectHideFlags: 0

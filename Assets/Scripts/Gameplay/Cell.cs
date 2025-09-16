@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -26,6 +27,8 @@ public class Cell : MonoBehaviour, IPointerEnterHandler, IPointerDownHandler
     [SerializeField] private RectTransform filledRightAngle;
     [SerializeField] private RectTransform filledStraightAngle;
     [SerializeField] private RectTransform filledSingle;
+
+    [SerializeField] private TextMeshProUGUI pos;
 
     public enum NextDirection
     {
@@ -65,6 +68,7 @@ public class Cell : MonoBehaviour, IPointerEnterHandler, IPointerDownHandler
     public void In()
     {
         anim.Play("Cell_In");
+        pos.text = row + " " + col;
     }
 
     public void Out()
