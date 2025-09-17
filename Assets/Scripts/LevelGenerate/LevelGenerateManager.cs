@@ -17,11 +17,14 @@ public class LevelGenerateManager : MonoBehaviour
     [SerializeField] private TMP_InputField stageInput;
     [SerializeField] private TMP_InputField columnInput;
     [SerializeField] private TMP_InputField rowInput;
+    [SerializeField] private TMP_InputField stepInput;
 
     [SerializeField] private Button showStageButton;
     [SerializeField] private Button createStageButton;
     [SerializeField] private Button saveStageButton;
-    [SerializeField] private Button startGenerateButton;
+    [SerializeField] private Button generateButton;
+
+    [SerializeField] private Toggle autoResizeToggle;
 
     public List<LevelData> levelData = new List<LevelData>();
     private TMP_InputField[,] cells = new TMP_InputField[9, 7];
@@ -30,25 +33,24 @@ public class LevelGenerateManager : MonoBehaviour
     int rowSize = -1;
     int colSize = -1;
 
-    public static LevelGenerateManager Instance;
-
-    private void Awake()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-    }
+    //----Generator
+    private int stepCount = 0;
+    private List<TMP_InputField> visitedCells = new List<TMP_InputField>();
+    private bool stepFound = false;
 
     private void Start()
     {
         stageInput.onSubmit.AddListener(ShowStage);
         columnInput.onSubmit.AddListener(SaveStage);
         rowInput.onSubmit.AddListener(SaveStage);
+        columnInput.onEndEdit.AddListener(StepChanged);
+        rowInput.onEndEdit.AddListener(StepChanged);
+        stepInput.onSubmit.AddListener(GenerateLevel);
 
         showStageButton.onClick.AddListener(ShowStage);
         createStageButton.onClick.AddListener(CreateStage);
         saveStageButton.onClick.AddListener(SaveStage);
+        generateButton.onClick.AddListener(GenerateLevel);
 
         levelData = LoadData();
     }
@@ -102,6 +104,8 @@ public class LevelGenerateManager : MonoBehaviour
             for (int j = 0; j < 7; j++)
             {
                 cells[i, j] = Instantiate(cellPrefab, cellParent);
+                cells[i, j].GetComponent<SlotPrefab>().row = i;
+                cells[i, j].GetComponent<SlotPrefab>().col = j;
             }
         }
 
@@ -142,7 +146,8 @@ public class LevelGenerateManager : MonoBehaviour
             for (int j = 0; j < 7; j++)
             {
                 cells[i, j] = Instantiate(cellPrefab, cellParent);
-                ;
+                cells[i, j].GetComponent<SlotPrefab>().row = i;
+                cells[i, j].GetComponent<SlotPrefab>().col = j;
             }
         }
 
@@ -177,11 +182,16 @@ public class LevelGenerateManager : MonoBehaviour
         {
             for (int j = 0; j < 7; j++)
             {
-                levelData[currentStage].size[i, j] = int.Parse(cells[i, j].text);
+                levelData[currentStage].size[i, j] = cells[i, j].text == string.Empty ? 0 : int.Parse(cells[i, j].text);
             }
         }
-
+        
         SaveData();
+    }
+
+    private void StepChanged(string text)
+    {
+        stepInput.text = (int.Parse(rowInput.text) * int.Parse(columnInput.text)).ToString();
     }
 
     private void ClearCells()
@@ -221,6 +231,8 @@ public class LevelGenerateManager : MonoBehaviour
 
     private void SetSize()
     {
+        if (!autoResizeToggle.isOn) return;
+            
         rowSize = -1;
         colSize = -1;
 
@@ -250,5 +262,151 @@ public class LevelGenerateManager : MonoBehaviour
     private void SetValue(TMP_InputField input, int value)
     {
         input.text = value.ToString();
+    }
+
+    private void GenerateLevel(string text)
+    {
+        GenerateLevel();
+    }
+    
+    private void GenerateLevel()
+    {
+        stepFound = false;
+        visitedCells = new List<TMP_InputField>();
+        stepCount = int.Parse(stepInput.text);
+        int row = int.Parse(rowInput.text);
+        int col = int.Parse(columnInput.text);
+
+        //Filled the area with "1" - normal cell
+        for (int i = 0; i < row; i++)
+        {
+            for (int j = 0; j < col; j++)
+            {
+                cells[i, j].text = "1";
+            }
+        }
+
+        //Create random base cell
+
+        int randRow = Random.Range(0, row);
+        int randCol = Random.Range(0, col);
+
+        cells[randRow, randCol].text = "2";
+        visitedCells.Add(cells[randRow, randCol]);
+        StartSolve(cells[randRow, randCol], visitedCells);
+    }
+
+    private void StartSolve(TMP_InputField executeCell, List<TMP_InputField> _visitedCells)
+    {
+        if (stepFound) return;
+        
+        // string visitedCellString = "";
+        // foreach (TMP_InputField item in _visitedCells)
+        // {
+        //     visitedCellString += item.GetComponent<SlotPrefab>().row + " " + item.GetComponent<SlotPrefab>().col + "|";
+        // }
+        //
+        // Debug.Log(visitedCellString);
+
+        List<TMP_InputField> adjacentCells = CheckAdjacent(executeCell);
+
+        foreach (TMP_InputField item in adjacentCells)
+        {
+            if (!_visitedCells.Contains(item))
+            {
+                _visitedCells.Add(item);
+
+                if (_visitedCells.Count >= stepCount)
+                {
+                    stepFound = true;
+                    Debug.Log("found");
+
+                    for (int i = 0; i < int.Parse(rowInput.text); i++)
+                    {
+                        for (int j = 0; j < int.Parse(columnInput.text); j++)
+                        {
+                            if (cells[i, j].text != "2")
+                                cells[i, j].text = "0";
+                        }
+                    }
+
+                    foreach (TMP_InputField cell in _visitedCells)
+                    {
+                        if (cell.text != "2")
+                            cell.text = "1";
+                    }
+                }
+
+                StartSolve(item, _visitedCells);
+                _visitedCells.Remove(item);
+            }
+        }
+    }
+
+    private List<TMP_InputField> CheckAdjacent(TMP_InputField tempCell)
+    {
+        List<TMP_InputField> adjacentCells = new List<TMP_InputField>();
+        int row = tempCell.GetComponent<SlotPrefab>().row;
+        int col = tempCell.GetComponent<SlotPrefab>().col;
+
+        List<int> randDir = new List<int>() { 0, 1, 2, 3 };
+
+        while (randDir.Count != 0)
+        {
+            int chooseIndex = Random.Range(0, randDir.Count);
+
+            switch (randDir[chooseIndex])
+            {
+                case 0:
+                {
+                    if (row - 1 >= 0)
+                    {
+                        adjacentCells.Add(cells[row - 1, col]);
+                    }
+
+                    randDir.Remove(randDir[chooseIndex]);
+
+                    break;
+                }
+                case 1:
+                {
+                    if (row + 1 < int.Parse(rowInput.text))
+                    {
+                        adjacentCells.Add(cells[row + 1, col]);
+                    }
+
+                    randDir.Remove(randDir[chooseIndex]);
+
+                    break;
+                }
+                case 2:
+                {
+                    if (col - 1 >= 0)
+                    {
+                        adjacentCells.Add(cells[row, col - 1]);
+                    }
+
+                    randDir.Remove(randDir[chooseIndex]);
+
+                    break;
+                }
+                case 3:
+                {
+                    if (col + 1 < int.Parse(columnInput.text))
+                    {
+                        adjacentCells.Add(cells[row, col + 1]);
+                    }
+
+                    randDir.Remove(randDir[chooseIndex]);
+
+                    break;
+                }
+                default:
+                    break;
+            }
+        }
+
+
+        return adjacentCells;
     }
 }

@@ -11,6 +11,8 @@ public class SlotPrefab : MonoBehaviour, IPointerEnterHandler
     private bool isWriting = false;
     
     public UnityEvent<TMP_InputField, int> action;
+
+    public int row, col;
     
     private void Update()
     {

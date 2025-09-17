@@ -28,10 +28,12 @@ public class GameManager : MonoBehaviour
     public static int[] baseCell = new int[2];
 
     public static int totalCell = 0; //Does not include the based cell
-
+    
+    //show instruction
     private int maxInstructionStep = 5;
     private int instructionStepThatStop = -1;
 
+    //debug level for testing
     public static int debugLevel = -1;
 
     private void Awake()
@@ -213,9 +215,13 @@ public class GameManager : MonoBehaviour
         {
             canvas.localScale = new Vector3(1.5f, 1.5f, 1.5f);
         }
+        else if (column <= 6)
+        {
+            canvas.localScale = new Vector3(1.27f, 1.27f, 1.27f);
+        }
         else if (row <= 7 && column <= 7)
         {
-            canvas.localScale = new Vector3(1.75f, 1.75f, 1.75f);
+            canvas.localScale = new Vector3(1.1f, 1.1f, 1.1f);
         }
     }
 
@@ -531,10 +537,34 @@ public class GameManager : MonoBehaviour
 
     private void _ShowInstructions()
     {
+        if (masterLevelData[debugLevel != -1 ? debugLevel : Player.Data.currentStage]
+                .solvedSteps.Count == 0)
+        {
+            masterLevelData[debugLevel != -1 ? debugLevel : Player.Data.currentStage]
+                .solvedSteps = AutoSolverManager.StartSolve(cell[baseCell[0], baseCell[1]]);
+            
+            Debug.Log(masterLevelData[debugLevel != -1 ? debugLevel : Player.Data.currentStage]
+                .solvedSteps.Count);
+        }
+        
         StartCoroutine(Execute());
 
         IEnumerator Execute()
         {
+            if (masterLevelData[debugLevel != -1 ? debugLevel : Player.Data.currentStage]
+                    .solvedSteps.Count == 0)
+                Debug.Log("empty");
+            else
+            {
+                string solvedStepString = "Solved Step: ";
+                foreach (LevelData.SolvedStep step in masterLevelData[debugLevel != -1 ? debugLevel : Player.Data.currentStage]
+                             .solvedSteps)
+                {
+                    solvedStepString += step.row + " " + step.column + "|";
+                }
+                Debug.Log(solvedStepString);
+            }
+            
             cell[baseCell[0], baseCell[1]].TriggerAction();
             yield return new WaitForSeconds(0.05f);
 
