@@ -28,13 +28,15 @@ public class GameManager : MonoBehaviour
     public static int[] baseCell = new int[2];
 
     public static int totalCell = 0; //Does not include the based cell
-    
+
     //show instruction
     private int maxInstructionStep = 5;
     private int instructionStepThatStop = -1;
 
     //debug level for testing
     public static int debugLevel = -1;
+
+    private int levelDifficulty = 0;
 
     private void Awake()
     {
@@ -73,6 +75,7 @@ public class GameManager : MonoBehaviour
 
         masterLevelData = JsonConvert.DeserializeObject<List<LevelData>>(json);
         levelData = masterLevelData[debugLevel != -1 ? debugLevel : Player.Data.currentStage];
+        levelDifficulty = levelData.difficulty;
 
         // foreach (LevelData.SolvedStep solvedStep in masterLevelData[
         //              debugLevel != -1 ? debugLevel : Player.Data.currentStage].solvedSteps)
@@ -87,6 +90,11 @@ public class GameManager : MonoBehaviour
         File.WriteAllText(Player.Data.dataPath, json);
 
         Debug.Log("Saved LevelData.json: " + Player.Data.dataPath);
+    }
+
+    public static int GetDifficulty()
+    {
+        return Instance.levelDifficulty;
     }
 
     private void DisplayLevel()
@@ -134,7 +142,7 @@ public class GameManager : MonoBehaviour
                     cell[i, j].In();
                 }
             }
-            
+
             CheckAdjacentCell(cell[baseCell[0], baseCell[1]]);
             yield return new WaitForEndOfFrame();
         }
@@ -207,21 +215,25 @@ public class GameManager : MonoBehaviour
 
     private void SetScaleCanvas(int row, int column)
     {
-        if (row <= 3 && column <= 3)
+        if (column <= 3)
         {
-            canvas.localScale = new Vector3(1.75f, 1.75f, 1.75f);
+            canvas.localScale = new Vector3(1f, 1f, 1f);
         }
-        else if (row <= 5 && column <= 5)
+        else if (column <= 4)
         {
-            canvas.localScale = new Vector3(1.5f, 1.5f, 1.5f);
+            canvas.localScale = new Vector3(0.925f, 0.925f, 0.925f);
+        }
+        else if (column <= 5)
+        {
+            canvas.localScale = new Vector3(0.85f, 0.85f, 0.85f);
         }
         else if (column <= 6)
         {
-            canvas.localScale = new Vector3(1.27f, 1.27f, 1.27f);
+            canvas.localScale = new Vector3(0.725f, 0.725f, 0.725f);
         }
-        else if (row <= 7 && column <= 7)
+        else if (column <= 7)
         {
-            canvas.localScale = new Vector3(1.1f, 1.1f, 1.1f);
+            canvas.localScale = new Vector3(0.625f, 0.625f, 0.625f);
         }
     }
 
@@ -537,16 +549,18 @@ public class GameManager : MonoBehaviour
 
     private void _ShowInstructions()
     {
+        SystemManager.excludeButton = true;
+
         if (masterLevelData[debugLevel != -1 ? debugLevel : Player.Data.currentStage]
                 .solvedSteps.Count == 0)
         {
             masterLevelData[debugLevel != -1 ? debugLevel : Player.Data.currentStage]
                 .solvedSteps = AutoSolverManager.StartSolve(cell[baseCell[0], baseCell[1]]);
-            
+
             Debug.Log(masterLevelData[debugLevel != -1 ? debugLevel : Player.Data.currentStage]
                 .solvedSteps.Count);
         }
-        
+
         StartCoroutine(Execute());
 
         IEnumerator Execute()
@@ -557,14 +571,16 @@ public class GameManager : MonoBehaviour
             else
             {
                 string solvedStepString = "Solved Step: ";
-                foreach (LevelData.SolvedStep step in masterLevelData[debugLevel != -1 ? debugLevel : Player.Data.currentStage]
+                foreach (LevelData.SolvedStep step in masterLevelData[
+                                 debugLevel != -1 ? debugLevel : Player.Data.currentStage]
                              .solvedSteps)
                 {
                     solvedStepString += step.row + " " + step.column + "|";
                 }
+
                 Debug.Log(solvedStepString);
             }
-            
+
             cell[baseCell[0], baseCell[1]].TriggerAction();
             yield return new WaitForSeconds(0.05f);
 
@@ -587,18 +603,13 @@ public class GameManager : MonoBehaviour
                 int col = masterLevelData[debugLevel != -1 ? debugLevel : Player.Data.currentStage].solvedSteps[i]
                     .column;
 
+                cell[row, col].SetInstructionShown();
                 cell[row, col].TriggerAction();
                 yield return new WaitForSeconds(0.05f);
-                cell[row, col].SetInstructionShown();
             }
 
+            SystemManager.excludeButton = false;
             yield return null;
         }
-    }
-
-    public static void ShowAutoSolving()
-    {
-        Debug.Log("ok");
-        AutoSolverManager.StartSolve(cell[baseCell[0], baseCell[1]]);
     }
 }

@@ -100,7 +100,6 @@ public class IngameUIManager : MonoBehaviour
         SoundManager.PlaySE( SE.UI_BTNCLICK );
 
         Ingame.SetPause( true );
-        // GameManager.SetMovingObject(  null );
     }    
     
     
@@ -117,8 +116,7 @@ public class IngameUIManager : MonoBehaviour
         VibrationManager.VibrateTap();
         SoundManager.PlaySE( SE.UI_BTNCLICK );
         
-        // ReplayUIManager.In(ReplayUIManager.ReplayUITypes.GOTOHOME);
-        GameManager.ShowAutoSolving();
+        ReplayUIManager.In(ReplayUIManager.ReplayUITypes.GOTOHOME);
         SystemManager.excludeButton = false;
     }    
     
@@ -136,9 +134,7 @@ public class IngameUIManager : MonoBehaviour
         VibrationManager.VibrateTap();
         SoundManager.PlaySE( SE.UI_BTNCLICK );
         
-        // ReplayUIManager.In(ReplayUIManager.ReplayUITypes.REPLAY);
-        GameManager.ShowInstructions();
-        SystemManager.excludeButton = false;
+        ReplayUIManager.In(ReplayUIManager.ReplayUITypes.INSTRUCTION);
     }
 
     private void LoadDebugLevel(string text)

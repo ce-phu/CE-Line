@@ -23,6 +23,7 @@ public class LevelGenerateManager : MonoBehaviour
     [SerializeField] private Button createStageButton;
     [SerializeField] private Button saveStageButton;
     [SerializeField] private Button generateButton;
+    [SerializeField] private Button solveButton;
 
     [SerializeField] private Toggle autoResizeToggle;
 
@@ -37,20 +38,22 @@ public class LevelGenerateManager : MonoBehaviour
     private int stepCount = 0;
     private List<TMP_InputField> visitedCells = new List<TMP_InputField>();
     private bool stepFound = false;
+    private bool onlyOneMove = false;
 
     private void Start()
     {
         stageInput.onSubmit.AddListener(ShowStage);
         columnInput.onSubmit.AddListener(SaveStage);
         rowInput.onSubmit.AddListener(SaveStage);
-        columnInput.onEndEdit.AddListener(StepChanged);
-        rowInput.onEndEdit.AddListener(StepChanged);
+        columnInput.onValueChanged.AddListener(StepChanged);
+        rowInput.onValueChanged.AddListener(StepChanged);
         stepInput.onSubmit.AddListener(GenerateLevel);
 
         showStageButton.onClick.AddListener(ShowStage);
         createStageButton.onClick.AddListener(CreateStage);
         saveStageButton.onClick.AddListener(SaveStage);
         generateButton.onClick.AddListener(GenerateLevel);
+        solveButton.onClick.AddListener(SolveLevel);
 
         levelData = LoadData();
     }
@@ -185,13 +188,16 @@ public class LevelGenerateManager : MonoBehaviour
                 levelData[currentStage].size[i, j] = cells[i, j].text == string.Empty ? 0 : int.Parse(cells[i, j].text);
             }
         }
-        
+
         SaveData();
     }
 
     private void StepChanged(string text)
     {
-        stepInput.text = (int.Parse(rowInput.text) * int.Parse(columnInput.text)).ToString();
+        if (rowInput.text != string.Empty && columnInput.text != string.Empty)
+        {
+            stepInput.text = ((int)(int.Parse(rowInput.text) * int.Parse(columnInput.text) * 0.8)).ToString();
+        }
     }
 
     private void ClearCells()
@@ -232,7 +238,7 @@ public class LevelGenerateManager : MonoBehaviour
     private void SetSize()
     {
         if (!autoResizeToggle.isOn) return;
-            
+
         rowSize = -1;
         colSize = -1;
 
@@ -264,42 +270,92 @@ public class LevelGenerateManager : MonoBehaviour
         input.text = value.ToString();
     }
 
+    private void SolveLevel()
+    {
+        bool baseFound = false;
+        int totalCells = 1;
+        int totalSolved = 0;
+        visitedCells = new List<TMP_InputField>();
+
+        for (int i = 0; i < int.Parse(rowInput.text); i++)
+        {
+            for (int j = 0; j < int.Parse(columnInput.text); j++)
+            {
+                if (cells[i, j].text == "1")
+                {
+                    totalCells++;
+                }
+            }
+        }
+
+        for (int i = 0; i < int.Parse(rowInput.text); i++)
+        {
+            for (int j = 0; j < int.Parse(columnInput.text); j++)
+            {
+                if (cells[i, j].text == "2")
+                {
+                    visitedCells.Add(cells[i,j]);
+                    totalSolved = StartSolve(cells[i, j], visitedCells, totalSolved, totalCells);
+                    baseFound = true;
+                }
+
+                if (baseFound) break;
+            }
+
+            if (baseFound) break;
+        }
+
+        Debug.Log("Total Solved Solution: " + totalSolved);
+    }
+
     private void GenerateLevel(string text)
     {
         GenerateLevel();
     }
-    
+
     private void GenerateLevel()
     {
-        stepFound = false;
-        visitedCells = new List<TMP_InputField>();
-        stepCount = int.Parse(stepInput.text);
-        int row = int.Parse(rowInput.text);
-        int col = int.Parse(columnInput.text);
+        onlyOneMove = false;
 
-        //Filled the area with "1" - normal cell
-        for (int i = 0; i < row; i++)
+        while (!onlyOneMove)
         {
-            for (int j = 0; j < col; j++)
+            stepFound = false;
+            visitedCells = new List<TMP_InputField>();
+            stepCount = int.Parse(stepInput.text);
+            int row = int.Parse(rowInput.text);
+            int col = int.Parse(columnInput.text);
+
+            //Filled the area with "1" - normal cell
+            for (int i = 0; i < row; i++)
             {
-                cells[i, j].text = "1";
+                for (int j = 0; j < col; j++)
+                {
+                    cells[i, j].text = "1";
+                }
             }
+
+            //Create random base cell
+            int randRow = Random.Range(0, row);
+            int randCol = Random.Range(0, col);
+
+            cells[randRow, randCol].text = "2";
+            visitedCells.Add(cells[randRow, randCol]);
+            StartGen(cells[randRow, randCol], visitedCells);
+
+            stepFound = false;
+            onlyOneMove = true;
+            visitedCells = new List<TMP_InputField> { cells[randRow, randCol] };
+
+            // StartSolve(cells[randRow, randCol], visitedCells);
+
+            // Debug.Log(onlyOneMove);
         }
-
-        //Create random base cell
-
-        int randRow = Random.Range(0, row);
-        int randCol = Random.Range(0, col);
-
-        cells[randRow, randCol].text = "2";
-        visitedCells.Add(cells[randRow, randCol]);
-        StartSolve(cells[randRow, randCol], visitedCells);
     }
 
-    private void StartSolve(TMP_InputField executeCell, List<TMP_InputField> _visitedCells)
+    private void StartGen(TMP_InputField executeCell, List<TMP_InputField> _visitedCells)
     {
         if (stepFound) return;
-        
+
         // string visitedCellString = "";
         // foreach (TMP_InputField item in _visitedCells)
         // {
@@ -308,7 +364,7 @@ public class LevelGenerateManager : MonoBehaviour
         //
         // Debug.Log(visitedCellString);
 
-        List<TMP_InputField> adjacentCells = CheckAdjacent(executeCell);
+        List<TMP_InputField> adjacentCells = CheckAdjacentRandom(executeCell);
 
         foreach (TMP_InputField item in adjacentCells)
         {
@@ -337,13 +393,13 @@ public class LevelGenerateManager : MonoBehaviour
                     }
                 }
 
-                StartSolve(item, _visitedCells);
+                StartGen(item, _visitedCells);
                 _visitedCells.Remove(item);
             }
         }
     }
 
-    private List<TMP_InputField> CheckAdjacent(TMP_InputField tempCell)
+    private List<TMP_InputField> CheckAdjacentRandom(TMP_InputField tempCell)
     {
         List<TMP_InputField> adjacentCells = new List<TMP_InputField>();
         int row = tempCell.GetComponent<SlotPrefab>().row;
@@ -408,5 +464,120 @@ public class LevelGenerateManager : MonoBehaviour
 
 
         return adjacentCells;
+    }
+    
+    private List<TMP_InputField> CheckAdjacent(TMP_InputField tempCell)
+    {
+        List<TMP_InputField> adjacentCells = new List<TMP_InputField>();
+        int row = tempCell.GetComponent<SlotPrefab>().row;
+        int col = tempCell.GetComponent<SlotPrefab>().col;
+
+        if (row - 1 >= 0)
+        {
+            if (cells[row - 1, col].text == "1")
+            {
+                adjacentCells.Add(cells[row - 1, col]);
+            }
+        }
+
+        if (row + 1 < int.Parse(rowInput.text))
+        {
+            if (cells[row + 1, col].text == "1")
+            {
+                adjacentCells.Add(cells[row + 1, col]);
+            }
+        }
+
+        if (col - 1 >= 0)
+        {
+            if (cells[row, col - 1].text == "1")
+            {
+                adjacentCells.Add(cells[row, col - 1]);
+            }
+        }
+
+        if (col + 1 < int.Parse(columnInput.text))
+        {
+            if (cells[row, col + 1].text == "1")
+            {
+                adjacentCells.Add(cells[row, col + 1]);
+            }
+        }
+
+        return adjacentCells;
+    }
+
+    private void StartSolve(TMP_InputField executeCell, List<TMP_InputField> _visitedCells)
+    {
+        // if (stepFound) return;
+
+        // string visitedCellString = "";
+        // foreach (TMP_InputField item in _visitedCells)
+        // {
+        //     visitedCellString += item.GetComponent<SlotPrefab>().row + " " + item.GetComponent<SlotPrefab>().col + "|";
+        // }
+        //
+        // Debug.Log(visitedCellString);
+
+        List<TMP_InputField> adjacentCells = CheckAdjacent(executeCell);
+
+        foreach (TMP_InputField item in adjacentCells)
+        {
+            if (!_visitedCells.Contains(item))
+            {
+                if (!onlyOneMove) return;
+
+                _visitedCells.Add(item);
+
+                if (_visitedCells.Count >= stepCount)
+                {
+                    if (stepFound)
+                    {
+                        onlyOneMove = false;
+                    }
+
+                    stepFound = true;
+
+                    Debug.Log("founddd");
+                }
+
+                StartSolve(item, _visitedCells);
+                _visitedCells.Remove(item);
+            }
+        }
+    }
+
+    private int StartSolve(TMP_InputField executeCell, List<TMP_InputField> _visitedCells, int solvedFound,
+        int finishedStepCount)
+    {
+        // if (stepFound) return;
+
+        // string visitedCellString = "";
+        // foreach (TMP_InputField item in _visitedCells)
+        // {
+        //     visitedCellString += item.GetComponent<SlotPrefab>().row + " " + item.GetComponent<SlotPrefab>().col + "|";
+        // }
+        //
+        // Debug.Log(visitedCellString);
+
+        List<TMP_InputField> adjacentCells = CheckAdjacent(executeCell);
+
+        foreach (TMP_InputField item in adjacentCells)
+        {
+            if (!_visitedCells.Contains(item))
+            {
+                _visitedCells.Add(item);
+
+                if (_visitedCells.Count >= finishedStepCount)
+                {
+                    solvedFound++;
+                }
+
+                solvedFound = StartSolve(item, _visitedCells, solvedFound, finishedStepCount);
+                _visitedCells.Remove(item);
+            }
+        }
+
+        return solvedFound;
     }
 }

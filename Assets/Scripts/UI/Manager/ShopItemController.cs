@@ -181,57 +181,6 @@ public class ShopItemController : MonoBehaviour
 		SoundManager.PlaySE( SE.UI_BTNCLICK );
 		SoundManager.PlaySE(SE.SHOP_PURCHASED);
 		
-		switch (itemTypes)
-		{
-			case ShopItemTypes.TIMESTOP:
-			{
-				if (!Player.Instance.HasEnoughGold(Player.SHOP_TIMESTOP_PRICE)) return;
-				
-				//Add item
-				Player.Instance.AddPowerup(PowerupTypes.TIMESTOP, Player.SHOP_TIMESTOP_QUANTITY);
-				Player.Instance.UseGold(Player.SHOP_TIMESTOP_PRICE);
-				ItemPopupUI.In(ItemType.TIMESTOP, Player.SHOP_TIMESTOP_QUANTITY);
-				
-				break;
-			}
-			case ShopItemTypes.BOMB:
-			{
-				if (!Player.Instance.HasEnoughGold(Player.SHOP_BOMB_PRICE)) return;
-				
-				//Add item
-				Player.Instance.AddPowerup(PowerupTypes.BOMB, Player.SHOP_BOMB_QUANTITY);
-				Player.Instance.UseGold(Player.SHOP_BOMB_PRICE);
-				ItemPopupUI.In(ItemType.BOMB, Player.SHOP_BOMB_QUANTITY);
-				
-				break;
-			}
-			case ShopItemTypes.HAMMER:
-			{
-				if (!Player.Instance.HasEnoughGold(Player.SHOP_HAMMER_PRICE)) return;
-				
-				//Add item
-				Player.Instance.AddPowerup(PowerupTypes.HAMMER, Player.SHOP_HAMMER_QUANTITY);
-				Player.Instance.UseGold(Player.SHOP_HAMMER_PRICE);
-				ItemPopupUI.In(ItemType.HAMMER, Player.SHOP_HAMMER_QUANTITY);
-				
-				break;
-			}
-			case ShopItemTypes.BUNDLE:
-			{
-				if (!Player.Instance.HasEnoughGold(Player.SHOP_BUNDLE_PRICE)) return;
-				//Add item
-				Player.Instance.AddPowerup(PowerupTypes.TIMESTOP, Player.SHOP_BUNDLE_QUANTITY);
-				Player.Instance.AddPowerup(PowerupTypes.BOMB, Player.SHOP_BUNDLE_QUANTITY);
-				Player.Instance.AddPowerup(PowerupTypes.HAMMER, Player.SHOP_BUNDLE_QUANTITY);
-				
-				Player.Instance.UseGold(Player.SHOP_BUNDLE_PRICE);
-				ItemPopupUI.In(ItemType.BUNDLE, Player.SHOP_BUNDLE_QUANTITY);
-				
-				break;
-			}
-			default:
-				break;
-		}
 		
 		ShopUIManager.UpdateShopItem();
 		SystemManager.excludeButton = false;

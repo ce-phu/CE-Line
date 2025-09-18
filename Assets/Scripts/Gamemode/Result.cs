@@ -62,7 +62,7 @@ public class Result : GameMode
                 }
                 else if ( isLose )
                 {
-                    TimeUIManager.In(false);
+                    // TimeUIManager.In(false);
                 }
 
                 status = Status.WAITINANIMATION;

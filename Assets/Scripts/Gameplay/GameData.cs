@@ -223,7 +223,8 @@ public class LevelData
     public int[,] size = new int[9, 7];
     public int row = 0;
     public int column = 0;
-
+    public int difficulty = 0;
+    
     public class SolvedStep
     {
         public int row = 0;

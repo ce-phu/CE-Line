@@ -5,25 +5,14 @@ using UnityEngine;
 public class PlayerData
 {
     public readonly string dataPath = "Assets/LevelData/LevelData.json";
-    
+
     public int gold = 0;
     public int lastGold = 0;
     public int lives = 5;
     public bool isFreeSpin = true;
     public long lastFreeSpin;
-    public int timeSpin = 0;
-    
-    public float liveInfTimer = 0f;
-    public float timeInfTimer = 0;
-    
-    public int currentStage = 1;
-}
 
-public enum PowerupTypes
-{
-    TIMESTOP,
-    BOMB,
-    HAMMER,
+    public int currentStage = 1;
 }
 
 public enum ShopItemTypes
@@ -53,10 +42,7 @@ public class Player : MonoBehaviour
 
     [SerializeField] private PlayerData data;
     public static PlayerData Data => Instance.data;
-    
-    public static readonly int MAX_LIVES = 5;
-    public static readonly int GOLD_PER_LIVE = 100;
-    
+
     public static readonly int SHOP_TIMESTOP_PRICE = 500;
     public static readonly int SHOP_BOMB_PRICE = 500;
     public static readonly int SHOP_HAMMER_PRICE = 500;
@@ -66,27 +52,26 @@ public class Player : MonoBehaviour
     public static readonly int SHOP_HAMMER_QUANTITY = 5;
     public static readonly int SHOP_BUNDLE_QUANTITY = 3;
 
-    public static readonly int LUCKY_SPIN_PRICE = 100;
-    public static readonly int LUCKY_MAXSPIN = 5;
+    public static readonly int LUCKY_SPIN_PRICE = 20;
 
-    public static readonly int TIME_RECOVER_PRICE = 100;
-    public static readonly int TIME_INFTIME_PRICE = 1000;
-    
-    public static readonly int RESULT_WIN_PRICE = 60;
-    
-    private const float LIVE_REGEN_INTERVAL_SECONDS = 1800f; // 30 minutes
-    
+    public static readonly int INSTRUCTION_PRICE = 100;
+
+    public static readonly int RESULT_WIN_PRICE_SUPEREASY = 5;
+    public static readonly int RESULT_WIN_PRICE_EASY = 10;
+    public static readonly int RESULT_WIN_PRICE_NORMAL = 20;
+    public static readonly int RESULT_WIN_PRICE_HARD = 30;
+    public static readonly int RESULT_WIN_PRICE_EXTREMELYHARD = 50;
+
     public System.Action OnGoldChanged;
     [field: SerializeField] public bool IsDataLoaded { get; private set; }
-    
 
-    
+
     public void LoadData()
     {
         data = SaveDataManager.data.playerData;
         IsDataLoaded = true;
     }
-    
+
     private void Awake()
     {
         if (Instance)
@@ -99,16 +84,16 @@ public class Player : MonoBehaviour
     }
 
 
-    public static void Proc( )
+    public static void Proc()
     {
-        Instance._Proc(  );
+        Instance._Proc();
     }
-    
+
     void _Proc()
     {
         // LifeTimeManager.Proc();
     }
-    
+
     public bool HasEnoughGold(int amount)
     {
         return data.gold >= amount;
@@ -128,53 +113,6 @@ public class Player : MonoBehaviour
         if (isInvokeCalled) OnGoldChanged?.Invoke();
     }
 
-
-
-    public void UseLive(int amount)
-    {
-        if( data.liveInfTimer > 0 ) return;
-        if( data.lives        < amount ) return;
-
-        data.lives -= amount;
-        data.lives = Mathf.Clamp(data.lives, 0, 5);
-    }
-
-    public void AddLive(int amount)
-    {
-        data.lives += amount;
-        data.lives = Mathf.Min(data.lives, MAX_LIVES);
-    }
-
-    public void InfLive(float minute)
-    {
-        data.liveInfTimer = minute * 60;
-        // LifeTimeManager.SetLifeInf( true );
-    }
-
-    public void InfTime(float minute)
-    {
-        data.timeInfTimer = minute * 60;
-        // LifeTimeManager.SetTimeInf( true );
-    }
-
-    public void AddPowerup(PowerupTypes powerupTypes, int amount)
-    {
-        switch (powerupTypes)
-        {
-            case PowerupTypes.TIMESTOP:
-                SaveDataManager.data.currentItem0 += amount;
-                break;
-            case PowerupTypes.BOMB:
-                SaveDataManager.data.currentItem1 += amount;
-                break;
-            case PowerupTypes.HAMMER:
-                SaveDataManager.data.currentItem2 += amount;
-                break;
-            default:
-                break;
-        }
-    }
-
     public bool HasFirstSpin()
     {
         if (DateTime.Now.Date <= DateTime.FromBinary(data.lastFreeSpin)) return false;
@@ -184,16 +122,8 @@ public class Player : MonoBehaviour
 
     public void UseSpin()
     {
-        if (data.isFreeSpin)
-        {
-            data.timeSpin++;
-            data.isFreeSpin = false;
-            data.lastFreeSpin = DateTime.Now.ToBinary();
-        }
-        else
-        {
-            data.timeSpin++;
-        }
+        data.isFreeSpin = false;
+        data.lastFreeSpin = DateTime.Now.ToBinary();
     }
 
     public void UpdateLastGold()
