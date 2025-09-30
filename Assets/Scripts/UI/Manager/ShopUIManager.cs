@@ -37,7 +37,7 @@ public class ShopUIManager : MonoBehaviour
     {
         SoundManager.PlaySE(SE.UI_PANELSHOW);
         
-        titleText.text = MessageData.ShopUI.Title;
+        MessageManager.GetStringData(MessageIndex._SHOP_TITLE, titleText);
         
         animator.Play("In");
         

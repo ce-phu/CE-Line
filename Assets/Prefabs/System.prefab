@@ -1457,10 +1457,9 @@ MonoBehaviour:
     lives: 5
     isFreeSpin: 1
     lastFreeSpin: 0
-    timeSpin: 0
-    liveInfTimer: 0
-    timeInfTimer: 0
+    star: 0
     currentStage: 1
+    starArchived: 
   <IsDataLoaded>k__BackingField: 0
 --- !u!114 &6836175249131955327
 MonoBehaviour:

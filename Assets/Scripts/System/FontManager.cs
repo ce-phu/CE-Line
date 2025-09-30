@@ -57,8 +57,6 @@ public class FontManager : MonoBehaviour
             return null;
         }
 
-        Debug.Log(_index);
-
         return Instance.fontAssets[_index];
     }
 }

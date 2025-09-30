@@ -82,9 +82,9 @@ public class Loading : GameMode
 
                     if ( SaveDataManager.data.termOfUseVersion < GameData.termOfUseVersion ) {
 
-                        PopupUIManager.In( PopupType.ONEBUTTON, MessageData.newPrivacyPolicyTitle,
-                            string.Format( MessageData.newPrivacyPolicyContent, GameData.termOfUseUrl, GameData.privacyPolicyUrl ),
-                            MessageData.newPrivacyPolicyButton, null, () => {
+                        PopupUIManager.In( PopupType.ONEBUTTON, MessageManager.GetStringOnlyText(MessageIndex._PRIVACY_POLICY_TITLE),
+                            string.Format( MessageManager.GetStringOnlyText(MessageIndex._PRIVACY_POLICY_CONTENT), GameData.termOfUseUrl, GameData.privacyPolicyUrl ),
+                            MessageManager.GetStringOnlyText(MessageIndex._PRIVACY_POLICY_BUTTON), null, () => {
 
                                 SoundManager.PlaySE( SE.UI_BTNCLICK );
                                 VibrationManager.VibrateTap();

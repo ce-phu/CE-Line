@@ -702,7 +702,7 @@ PlayerSettings:
   webGLCloseOnQuit: 0
   webWasm2023: 0
   scriptingDefineSymbols:
-    Android: CE_DEBUG;CE_LANGUAGE_DEBUG_VN
+    Android: CE_LANGUAGE_DEBUG_EN;CE_DEBUG
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend:

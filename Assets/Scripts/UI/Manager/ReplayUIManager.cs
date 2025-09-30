@@ -17,15 +17,14 @@ public class ReplayUIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI titleText;
 
     [SerializeField] private Animator anim;
-    [SerializeField] private Button processButton;
+    [SerializeField] private Button coinButton;
+    [SerializeField] private Button goHomeButton;
     [SerializeField] private Button closeButton;
 
     [SerializeField] private TextMeshProUGUI descText;
-    [SerializeField] private TextMeshProUGUI buttonText;
+    [SerializeField] private TextMeshProUGUI goHomeButtonText;
 
     [SerializeField] private Button adsButton;
-    [SerializeField] private GameObject backHomeContent;
-    [SerializeField] private GameObject instructionsContent;
     [SerializeField] private TextMeshProUGUI instructionCoinText;
     [SerializeField] private GameObject disablePanel;
 
@@ -55,7 +54,8 @@ public class ReplayUIManager : MonoBehaviour
 
         anim.Play("In");
 
-        processButton.onClick.AddListener(OnClick_ProcessButton);
+        coinButton.onClick.AddListener(OnClick_ProcessButton);
+        goHomeButton.onClick.AddListener(OnClick_ProcessButton);
         closeButton.onClick.AddListener(OnClick_CloseButton);
         adsButton.onClick.AddListener(OnClick_AdsButton);
 
@@ -67,33 +67,30 @@ public class ReplayUIManager : MonoBehaviour
 
         if (replayUIType == ReplayUITypes.INSTRUCTION)
         {
+            coinButton.gameObject.SetActive(true);
+            goHomeButton.gameObject.SetActive(false);
             MessageManager.GetStringData(MessageIndex._REPLAY_REPLAY_DESCRIPTION, descText);
-            MessageManager.GetStringData(MessageIndex._REPLAY_REPLAY_BUTTON, buttonText);
             instructionCoinText.text = Player.INSTRUCTION_PRICE.ToString();
-            backHomeContent.SetActive(false);
-            instructionsContent.SetActive(true);
 
             adsButton.gameObject.SetActive(true);
-            processButton.interactable = Player.Instance.HasEnoughGold(Player.INSTRUCTION_PRICE);
+            coinButton.interactable = Player.Instance.HasEnoughGold(Player.INSTRUCTION_PRICE);
             disablePanel.SetActive(!Player.Instance.HasEnoughGold(Player.INSTRUCTION_PRICE));
             instructionCoinText.color =
                 Player.Instance.HasEnoughGold(Player.INSTRUCTION_PRICE) ? Color.white : Color.red;
         }
         else if (replayUIType == ReplayUITypes.GOTOHOME)
         {
-            backHomeContent.SetActive(true);
-            instructionsContent.SetActive(false);
+            coinButton.gameObject.SetActive(false);
+            goHomeButton.gameObject.SetActive(true);
             adsButton.gameObject.SetActive(false);
             disablePanel.SetActive(false);
-            processButton.interactable = true;
 
             MessageManager.GetStringData(MessageIndex._REPLAY_GOTOHOME_DESCRIPTION, descText);
-            MessageManager.GetStringData(MessageIndex._REPLAY_GOTOHOME_BUTTON, buttonText);
+            MessageManager.GetStringData(MessageIndex._REPLAY_GOTOHOME_BUTTON, goHomeButtonText);
         }
         else
         {
             MessageManager.GetStringData(MessageIndex._REPLAY_REPLAY_DESCRIPTION, descText);
-            MessageManager.GetStringData(MessageIndex._REPLAY_REPLAY_BUTTON, buttonText);
         }
 
         Result.AddListener(Out);
@@ -110,8 +107,10 @@ public class ReplayUIManager : MonoBehaviour
 
         anim.Play("Out");
 
-        processButton.onClick.RemoveAllListeners();
+        coinButton.onClick.RemoveAllListeners();
+        goHomeButton.onClick.RemoveAllListeners();
         closeButton.onClick.RemoveAllListeners();
+        adsButton.onClick.RemoveAllListeners();
 
         SystemManager.excludeButton = true;
 

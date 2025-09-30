@@ -1,4 +1,7 @@
 using System;
+using System.Collections.Generic;
+using Unity.VisualScripting;
+using Unity.VisualScripting.InputSystem;
 using UnityEngine;
 
 [System.Serializable]
@@ -11,8 +14,11 @@ public class PlayerData
     public int lives = 5;
     public bool isFreeSpin = true;
     public long lastFreeSpin;
+    public int totalStar = 0;
 
     public int currentStage = 1;
+    public int[] starArchived = new int[300];
+    public bool[] levelUnlocked = new bool[10];
 }
 
 public enum ShopItemTypes
@@ -25,6 +31,7 @@ public enum ShopItemTypes
 
 public enum ItemType
 {
+    NONE,
     GOLD,
     LIVES,
     INFLIVES,
@@ -61,6 +68,14 @@ public class Player : MonoBehaviour
     public static readonly int RESULT_WIN_PRICE_NORMAL = 20;
     public static readonly int RESULT_WIN_PRICE_HARD = 30;
     public static readonly int RESULT_WIN_PRICE_EXTREMELYHARD = 50;
+
+    public static readonly int TOTAL_STAR_PER_LEVEL = 300;
+    public static readonly int TOTAL_STAR_PER_STAGE = 3;
+    public static readonly int TOTAL_STAGE_PER_LEVEL = 100;
+
+    public static readonly float TIME_TO_SOLVE_PER_CELL = 2f;
+
+    public static readonly int LEVEL_UNLOCK_PRICE = 500;
 
     public System.Action OnGoldChanged;
     [field: SerializeField] public bool IsDataLoaded { get; private set; }
@@ -129,5 +144,31 @@ public class Player : MonoBehaviour
     public void UpdateLastGold()
     {
         data.lastGold = data.gold;
+    }
+
+    public void ArchivedStar(int amount)
+    {
+        data.starArchived[data.currentStage] = amount;
+        data.totalStar += amount;
+    }
+
+    public bool CheckUnlockedLevel(int index)
+    {
+        int group = (index - 1) / TOTAL_STAGE_PER_LEVEL;
+        int lowIndex = group * TOTAL_STAGE_PER_LEVEL + 1;
+        int highIndex = (group + 1) * TOTAL_STAGE_PER_LEVEL;
+
+        Debug.Log("\\");
+
+        if (!data.levelUnlocked[group + 1])
+        {
+            for (int i = lowIndex; i <= highIndex; i++)
+            {
+                Debug.Log(i);
+                if (data.starArchived[i - 100] == 0) return false;
+            }
+        }
+
+        return true;
     }
 }

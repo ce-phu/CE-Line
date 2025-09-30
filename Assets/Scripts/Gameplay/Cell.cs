@@ -12,6 +12,8 @@ public class Cell : MonoBehaviour, IPointerEnterHandler, IPointerDownHandler
     public bool isDisable = false;
     public bool instructionShown = false;
 
+    public bool isShownOnly = false;
+    
     public Image image;
 
     public int row;
@@ -153,6 +155,7 @@ public class Cell : MonoBehaviour, IPointerEnterHandler, IPointerDownHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
+        if (isShownOnly) return;
         if (isDisable) return;
         // Debug.Log("Clicked: " + row + " " + col);
         TriggerAction();
@@ -160,6 +163,7 @@ public class Cell : MonoBehaviour, IPointerEnterHandler, IPointerDownHandler
 
     public void OnPointerEnter(PointerEventData eventData)
     {
+        if (isShownOnly) return;
         if (isDisable) return;
         if (GameManager.isPointerDown)
         {

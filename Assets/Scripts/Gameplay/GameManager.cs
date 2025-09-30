@@ -3,9 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using Newtonsoft.Json;
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
 {
@@ -16,6 +18,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Cell cellPrefabs;
     [SerializeField] private Transform cellParent;
     [SerializeField] private GridLayoutGroup levelDisplay;
+    
+    
+    [SerializeField] private RectTransform menuCanvas;
+
+    [SerializeField] private Transform menuCellParent;
+    [SerializeField] private GridLayoutGroup menuLevelDisplay;
 
     private List<LevelData> masterLevelData = new List<LevelData>();
     private LevelData levelData = new LevelData();
@@ -38,13 +46,19 @@ public class GameManager : MonoBehaviour
 
     private int levelDifficulty = 0;
 
+    private int totalStar = -1;
+
     private void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
         }
+
+        LoadDataFromAwake();
     }
+
+    private float timeElapsed = 0;
 
     private void Update()
     {
@@ -64,6 +78,22 @@ public class GameManager : MonoBehaviour
     {
         LoadData();
         DisplayLevel();
+    }
+
+    public static void InitMenu()
+    {
+        Instance.LoadData();
+        Instance._DisplayLevelForBG();
+    }
+    
+    private void LoadDataFromAwake()
+    {
+        Debug.Log(Player.Data.dataPath);
+        if (!File.Exists(Player.Data.dataPath)) return;
+
+        string json = File.ReadAllText(Player.Data.dataPath);
+
+        masterLevelData = JsonConvert.DeserializeObject<List<LevelData>>(json);
     }
 
     private void LoadData()
@@ -147,6 +177,61 @@ public class GameManager : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
     }
+    
+    private void _DisplayLevelForBG()
+    {
+        int randomStage = Random.Range(10, 30);
+        levelData = masterLevelData[randomStage];
+        
+        StartCoroutine(Execute());
+
+        IEnumerator Execute()
+        {
+            ClearLevel();
+
+            int rowCount = levelData.row;
+            int columnCount = levelData.column;
+
+            baseCell = new int[2];
+
+            menuLevelDisplay.constraintCount = columnCount;
+            cell = new Cell[rowCount, columnCount];
+
+            MenuSetScaleCanvas();
+
+            for (int i = 0; i < rowCount; i++)
+            {
+                for (int j = 0; j < columnCount; j++)
+                {
+                    cell[i, j] = Instantiate(cellPrefabs, menuCellParent);
+                    cell[i, j].row = i;
+                    cell[i, j].col = j;
+                    cell[i, j].isShownOnly = true;
+
+                    if (levelData.size[i, j] == 2)
+                    {
+                        cell[i, j].SetBase();
+                        baseCell[0] = i;
+                        baseCell[1] = j;
+                    }
+                    else if (levelData.size[i, j] == 1)
+                    {
+                        cell[i, j].SetNormal();
+                        totalCell++;
+                    }
+                    else if (levelData.size[i, j] == 0)
+                    {
+                        cell[i, j].SetDisable();
+                    }
+
+                    cell[i, j].In();
+                }
+            }
+
+            CheckAdjacentCell(cell[baseCell[0], baseCell[1]]);
+            yield return new WaitForEndOfFrame();
+        }
+    }
 
     private void ClearLevel()
     {
@@ -154,16 +239,21 @@ public class GameManager : MonoBehaviour
         {
             Destroy(child.gameObject);
         }
+        
+        foreach (Transform child in menuCellParent.transform)
+        {
+            Destroy(child.gameObject);
+        }
 
         totalCell = 0;
         cellStack.Clear();
         instructionStepThatStop = -1;
+        timeElapsed = 0;
     }
 
     private void LevelWin()
     {
 #if CE_DEBUG
-
         masterLevelData[debugLevel != -1 ? debugLevel : Player.Data.currentStage].solvedSteps.Clear();
         foreach (Cell item in cellStack)
         {
@@ -202,6 +292,7 @@ public class GameManager : MonoBehaviour
             totalCell = 0;
             cellStack.Clear();
             instructionStepThatStop = -1;
+            StarCalculator();
             Ingame.SetNextLevel(true);
 
             foreach (Transform child in cellParent.transform)
@@ -211,6 +302,30 @@ public class GameManager : MonoBehaviour
         }
 
         //Save Solved Steps
+    }
+
+    public static void TimeCollapsing()
+    {
+        Instance.timeElapsed += Time.deltaTime;
+    }
+
+    private void StarCalculator()
+    {
+        float halfTime = masterLevelData[Player.Data.currentStage].timeEstimated / 2;
+        float fullTime = masterLevelData[Player.Data.currentStage].timeEstimated;
+
+        if (timeElapsed < halfTime)
+        {
+            Player.Instance.ArchivedStar(3);
+        }
+        else if (timeElapsed < fullTime)
+        {
+            Player.Instance.ArchivedStar(2);
+        }
+        else
+        {
+            Player.Instance.ArchivedStar(1);
+        }
     }
 
     private void SetScaleCanvas(int row, int column)
@@ -234,6 +349,42 @@ public class GameManager : MonoBehaviour
         else if (column <= 7)
         {
             canvas.localScale = new Vector3(0.625f, 0.625f, 0.625f);
+        }
+    }
+    
+    private void MenuSetScaleCanvas()
+    {
+        float screenHeight = Screen.height;
+        float screenWidth = Screen.width;
+        var ratio = screenHeight / screenWidth;
+        float multiple = 0.314f;
+        
+        switch (ratio)
+        {
+            case <= 1.334f: //4:3
+            {
+                menuCanvas.localScale = new Vector3(1.334f * multiple, 1.334f * multiple, 1.334f * multiple);
+                break;
+            }
+            case <= 1.778f: //16:9
+            {
+                menuCanvas.localScale = new Vector3(1.778f * multiple, 1.778f * multiple, 1.778f * multiple);
+                break;
+            }
+            case <= 2.001f: //18:9
+            {
+                menuCanvas.localScale = new Vector3(2.001f * multiple, 2.001f * multiple, 2.001f * multiple);
+                break;
+            }
+            case <= 2.334f: //21:9
+            {
+                menuCanvas.localScale = new Vector3(2.334f * multiple, 2.334f * multiple, 2.334f * multiple);
+                break;
+            }
+            default:
+            {
+                break;
+            }
         }
     }
 
@@ -334,6 +485,7 @@ public class GameManager : MonoBehaviour
             item.SetNormal();
         }
 
+        SoundManager.PlaySE(SE.BLOCK_ENDDRAG);
         Instance.cellStack.Clear();
     }
 
@@ -344,8 +496,11 @@ public class GameManager : MonoBehaviour
 
     private void _SetActiveCell(Cell tempCell)
     {
+        bool hasPlayed = false;
+
         if (!cellStack.Contains(tempCell))
         {
+            SoundManager.PlaySE(SE.BLOCK_STARTDRAG);
             cellStack.Push(tempCell);
             CheckWin();
         }
@@ -354,14 +509,20 @@ public class GameManager : MonoBehaviour
             bool isContinue = true;
             while (isContinue)
             {
-                Cell temp = cellStack.Pop();
+                Cell temp = cellStack.Peek();
                 if (temp == tempCell)
                 {
                     isContinue = false;
-                    cellStack.Push(temp);
                 }
                 else
                 {
+                    if (!hasPlayed)
+                    {
+                        SoundManager.PlaySE(SE.BLOCK_ENDDRAG);
+                        hasPlayed = true;
+                    }
+
+                    cellStack.Pop();
                     temp.SetNormal();
                 }
             }
@@ -611,5 +772,20 @@ public class GameManager : MonoBehaviour
             SystemManager.excludeButton = false;
             yield return null;
         }
+    }
+
+    public static int GetTotalStar()
+    {
+        if (Instance.totalStar > -1)
+            return Instance.totalStar;
+
+        Instance.totalStar = (Instance.masterLevelData.Count / Player.TOTAL_STAGE_PER_LEVEL) *
+                             Player.TOTAL_STAGE_PER_LEVEL * Player.TOTAL_STAR_PER_STAGE;
+        return Instance.totalStar;
+    }
+
+    public static List<LevelData> GetMasterLevel()
+    {
+        return Instance.masterLevelData;
     }
 }

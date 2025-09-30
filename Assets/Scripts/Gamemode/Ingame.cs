@@ -164,19 +164,7 @@ public class Ingame : GameMode
                 }
                 else
                 {
-                    // if ( TutorialUIManager.Finished() == false ) {
-                    //
-                    //     if ( TutorialUIManager.IsCompleteAnimation() ) {
-                    //
-                    //         if ( Input.GetMouseButtonDown( 0 ) ) {
-                    //
-                    //             TutorialUIManager.Stop();
-                    //         }
-                    //     }
-                    // }
-                    //
-                    // GameManager.Proc();
-                    // IngameUIManager.Proc();
+                    GameManager.TimeCollapsing();
                 }
 
                 break;

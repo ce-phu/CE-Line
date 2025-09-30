@@ -138,13 +138,14 @@ public class ResultUIManager : MonoBehaviour
 
     private void SetText()
     {
-        loseTitleText.text = MessageData.ResultUI.LoseTitle;
-        loseButtonText.text = MessageData.ResultUI.LoseButton;
-        winTitleText.text = MessageData.ResultUI.WinTitle;
-        claimButtonText.text = MessageData.ResultUI.ClaimButton;
-        claimButtonx2Text.text = MessageData.ResultUI.Claimx2Button;
-        loseBackButtonText.text = MessageData.ResultUI.LoseBackButton;
-        winBackButtonText.text = MessageData.ResultUI.WinBackButton;
+        MessageManager.GetStringData(MessageIndex._RESULT_LOSE_TITLE, loseTitleText);
+        MessageManager.GetStringData(MessageIndex._RESULT_LOSE_BUTTON, loseButtonText);
+        MessageManager.GetStringData(MessageIndex._RESULT_WIN_TITLE, winTitleText);
+        MessageManager.GetStringData(MessageIndex._RESULT_CLAIM_BUTTON, claimButtonText);
+        MessageManager.GetStringData(MessageIndex._RESULT_CLAIMX2_BUTTON, claimButtonx2Text);
+        MessageManager.GetStringData(MessageIndex._RESULT_LOSEBACK_BUTTON, loseBackButtonText);
+        MessageManager.GetStringData(MessageIndex._RESULT_WINBACK_BUTTON, winBackButtonText);
+        LayoutRebuilder.ForceRebuildLayoutImmediate(winBackButtonText.transform.parent as RectTransform);
     }
 
     void Claim()

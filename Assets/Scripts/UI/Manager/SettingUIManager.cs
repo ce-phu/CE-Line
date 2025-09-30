@@ -64,8 +64,8 @@ public class SettingUIManager : MonoBehaviour
         joinUsButton.onClick.AddListener(OnClick_JoinUsButton);
         closeButton.onClick.AddListener(OnClick_CloseButton);
 
-        // titleText.text = MessageData.SettingUI.Title;
-        
+        MessageManager.GetStringData(MessageIndex._SETTING_TITLE, titleText);
+
         animator.Play( "In" );
     }
 
@@ -81,7 +81,7 @@ public class SettingUIManager : MonoBehaviour
         vibrationButton.onClick.AddListener(OnClick_VibrationButton);
         closeButton.onClick.AddListener(OnClick_IngameCloseButton);
         
-        // titleText.text = MessageData.SettingUI.Title;
+        MessageManager.GetStringData(MessageIndex._SETTING_TITLE, titleText);
         
         animator.Play( "Ingame_In" );
         isOpen = true;
@@ -292,10 +292,9 @@ public class SettingUIManager : MonoBehaviour
             vibrationImage.color = Color.white;
             vibrationDisable.SetActive(false);
         }
-
         
-        // helpButtonText.text = MessageData.SettingUI.HelpButton;
-        // giftCodeButtonText.text = MessageData.SettingUI.GiftCodeButton;
+        MessageManager.GetStringData(MessageIndex._SETTING_HELP_BUTTON, helpButtonText);
+        MessageManager.GetStringData(MessageIndex._SETTING_GIFTCODE_BUTTON, giftCodeButtonText);
     }
     
     private void OnClick_CloseButton() {

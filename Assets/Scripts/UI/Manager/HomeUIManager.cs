@@ -1,11 +1,9 @@
-    
 using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
-
 
 
 public class HomeUIManager : MonoBehaviour
@@ -16,11 +14,11 @@ public class HomeUIManager : MonoBehaviour
     [SerializeField] private Button luckyButton;
     [SerializeField] private Button shopButton;
     [SerializeField] private Button playButton;
+    [SerializeField] private Button levelButton;
 
     [Header("Text")] [SerializeField] private TextMeshProUGUI coinText;
     [SerializeField] private TextMeshProUGUI luckyText;
     [SerializeField] private TextMeshProUGUI shopText;
-    [SerializeField] private TextMeshProUGUI playText;
     [SerializeField] private TextMeshProUGUI stage1Text;
     [SerializeField] private TextMeshProUGUI stage2Text;
     [SerializeField] private TextMeshProUGUI stage3Text;
@@ -51,13 +49,16 @@ public class HomeUIManager : MonoBehaviour
     {
         anim.Play("In");
         isAnimationCompleted = false;
-        
+
         settingButton.onClick.AddListener(OnClick_SettingButton);
         luckyButton.onClick.AddListener(OnClick_LuckyButton);
         shopButton.onClick.AddListener(OnClick_ShopButton);
         playButton.onClick.AddListener(OnClick_PlayButton);
-        
+        levelButton.onClick.AddListener((OnClick_LevelButton));
+
         SetTextAndStage();
+        
+        // GameManager.InitMenu();
     }
 
     public static void Out()
@@ -69,11 +70,12 @@ public class HomeUIManager : MonoBehaviour
     {
         anim.Play("Out");
         isAnimationCompleted = false;
-        
+
         settingButton.onClick.RemoveAllListeners();
         luckyButton.onClick.RemoveAllListeners();
         shopButton.onClick.RemoveAllListeners();
         playButton.onClick.RemoveAllListeners();
+        levelButton.onClick.RemoveAllListeners();
     }
 
     public static void Def()
@@ -87,7 +89,6 @@ public class HomeUIManager : MonoBehaviour
     }
 
 
-
     public static void SetCoin(int amount)
     {
         Instance.coinText.text = amount.ToString();
@@ -99,76 +100,78 @@ public class HomeUIManager : MonoBehaviour
     }
 
 
-
     private void SetTextAndStage()
     {
-        // playText.text = MessageData.HomeUI.PlayButton;
-
         stage1Text.text = Player.Data.currentStage.ToString();
         stage2Text.text = (Player.Data.currentStage + 1).ToString();
         stage3Text.text = (Player.Data.currentStage + 2).ToString();
 
-        // luckyText.text = MessageData.HomeUI.LuckyButton;
-        // shopText.text = MessageData.HomeUI.ShopButton;
+        MessageManager.GetStringData(MessageIndex._HOME_LUCKY_BUTTON, luckyText);
+        MessageManager.GetStringData(MessageIndex._HOME_SHOP_BUTTON, shopText);
     }
-    
+
     private void OnClick_SettingButton()
-    {        
+    {
         if (SystemManager.excludeButton) return;
-        SystemManager.excludeButton = true;        
-        
+        SystemManager.excludeButton = true;
+
         VibrationManager.VibrateTap();
-        SoundManager.PlaySE( SE.UI_BTNCLICK );
-        
+        SoundManager.PlaySE(SE.UI_BTNCLICK);
+
         SettingUIManager.In();
     }
 
     private void OnClick_LuckyButton()
     {
         if (SystemManager.excludeButton) return;
-        SystemManager.excludeButton = true;        
-        
+        SystemManager.excludeButton = true;
+
         VibrationManager.VibrateTap();
-        SoundManager.PlaySE( SE.UI_BTNCLICK );
-        
+        SoundManager.PlaySE(SE.UI_BTNCLICK);
+
         LuckyWheelUI.In();
     }
 
     private void OnClick_ShopButton()
     {
         if (SystemManager.excludeButton) return;
-        SystemManager.excludeButton = true;        
-        
+        SystemManager.excludeButton = true;
+
         VibrationManager.VibrateTap();
-        SoundManager.PlaySE( SE.UI_BTNCLICK );
-        
+        SoundManager.PlaySE(SE.UI_BTNCLICK);
+
         ShopUIManager.In();
     }
 
     public static void OnClick_PlayButton()
     {
-        if ( SystemManager.excludeButton ) {
-
+        if (SystemManager.excludeButton)
+        {
             return;
         }
-        
+
         VibrationManager.VibrateTap();
-        SoundManager.PlaySE( SE.UI_BTNCLICK );
-        
-        SystemManager.excludeButton   = true;
-        
-        SoundManager.PlaySE( SE.LEVEL_START );
+        SoundManager.PlaySE(SE.UI_BTNCLICK);
+
+        SystemManager.excludeButton = true;
+
+        SoundManager.PlaySE(SE.LEVEL_START);
 
         Home.goToIngame = true;
     }
+
+    private void OnClick_LevelButton()
+    {
+        LevelUIManager.In();
+    }
     
-    public static void PlayEffect( )
+    public static void PlayEffect()
     {
         Instance.isAnimationCompleted = false;
         Instance.effect.Play();
     }
 
-    
+
     public static bool IsCompleteAnimation()
     {
         return Instance.isAnimationCompleted;

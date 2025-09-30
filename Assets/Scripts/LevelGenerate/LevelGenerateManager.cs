@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using Newtonsoft.Json;
@@ -24,8 +25,11 @@ public class LevelGenerateManager : MonoBehaviour
     [SerializeField] private Button saveStageButton;
     [SerializeField] private Button generateButton;
     [SerializeField] private Button solveButton;
+    [SerializeField] private Button loadAllStageButton;
 
     [SerializeField] private Toggle autoResizeToggle;
+
+    [SerializeField] private TextMeshProUGUI elapsedTimeText;
 
     public List<LevelData> levelData = new List<LevelData>();
     private TMP_InputField[,] cells = new TMP_InputField[9, 7];
@@ -54,6 +58,7 @@ public class LevelGenerateManager : MonoBehaviour
         saveStageButton.onClick.AddListener(SaveStage);
         generateButton.onClick.AddListener(GenerateLevel);
         solveButton.onClick.AddListener(SolveLevel);
+        loadAllStageButton.onClick.AddListener(LoadAllStages);
 
         levelData = LoadData();
     }
@@ -85,7 +90,6 @@ public class LevelGenerateManager : MonoBehaviour
 
         string json = File.ReadAllText(dataPath);
         return JsonConvert.DeserializeObject<List<LevelData>>(json);
-        ;
     }
 
     private void ShowStage(string stage)
@@ -217,6 +221,7 @@ public class LevelGenerateManager : MonoBehaviour
 
     private void SetColor()
     {
+        SetTimeEstimate();
         // Debug.Log("SetColor");
 
         foreach (TMP_InputField item in cells)
@@ -294,7 +299,7 @@ public class LevelGenerateManager : MonoBehaviour
             {
                 if (cells[i, j].text == "2")
                 {
-                    visitedCells.Add(cells[i,j]);
+                    visitedCells.Add(cells[i, j]);
                     totalSolved = StartSolve(cells[i, j], visitedCells, totalSolved, totalCells);
                     baseFound = true;
                 }
@@ -465,7 +470,7 @@ public class LevelGenerateManager : MonoBehaviour
 
         return adjacentCells;
     }
-    
+
     private List<TMP_InputField> CheckAdjacent(TMP_InputField tempCell)
     {
         List<TMP_InputField> adjacentCells = new List<TMP_InputField>();
@@ -507,46 +512,6 @@ public class LevelGenerateManager : MonoBehaviour
         return adjacentCells;
     }
 
-    private void StartSolve(TMP_InputField executeCell, List<TMP_InputField> _visitedCells)
-    {
-        // if (stepFound) return;
-
-        // string visitedCellString = "";
-        // foreach (TMP_InputField item in _visitedCells)
-        // {
-        //     visitedCellString += item.GetComponent<SlotPrefab>().row + " " + item.GetComponent<SlotPrefab>().col + "|";
-        // }
-        //
-        // Debug.Log(visitedCellString);
-
-        List<TMP_InputField> adjacentCells = CheckAdjacent(executeCell);
-
-        foreach (TMP_InputField item in adjacentCells)
-        {
-            if (!_visitedCells.Contains(item))
-            {
-                if (!onlyOneMove) return;
-
-                _visitedCells.Add(item);
-
-                if (_visitedCells.Count >= stepCount)
-                {
-                    if (stepFound)
-                    {
-                        onlyOneMove = false;
-                    }
-
-                    stepFound = true;
-
-                    Debug.Log("founddd");
-                }
-
-                StartSolve(item, _visitedCells);
-                _visitedCells.Remove(item);
-            }
-        }
-    }
-
     private int StartSolve(TMP_InputField executeCell, List<TMP_InputField> _visitedCells, int solvedFound,
         int finishedStepCount)
     {
@@ -579,5 +544,39 @@ public class LevelGenerateManager : MonoBehaviour
         }
 
         return solvedFound;
+    }
+
+    private void SetTimeEstimate()
+    {
+        // int totalCells = 0;
+        // foreach (TMP_InputField item in cells)
+        // {
+        //     if (item.text == "1")
+        //     {
+        //         totalCells++;
+        //     }
+        // }
+        //
+        // LevelData temp = levelData[currentStage];
+        // levelData[currentStage] = new LevelData();
+        // levelData[currentStage] = temp;
+        // levelData[currentStage].timeEstimated = totalCells * Player.TIME_TO_SOLVE_PER_CELL;
+        elapsedTimeText.text = levelData[currentStage].timeEstimated + "";
+        // SaveData();
+    }
+
+    private void LoadAllStages()
+    {
+        StartCoroutine(Action());
+
+        IEnumerator Action()
+        {
+            for (int i = 0; i < 206; i++)
+            {
+                stageInput.text = i + "";
+                ShowStage();
+                yield return new WaitForSeconds(.1f);
+            }
+        }
     }
 }

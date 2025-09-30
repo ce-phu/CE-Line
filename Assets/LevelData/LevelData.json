@@ -86,6 +86,8 @@
     "row": 0,
     "column": 0,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 0.0,
     "solvedSteps": []
   },
   {
@@ -175,6 +177,8 @@
     "row": 1,
     "column": 3,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 4.0,
     "solvedSteps": [
       {
         "row": 0,
@@ -273,6 +277,8 @@
     "row": 2,
     "column": 3,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 8.0,
     "solvedSteps": [
       {
         "row": 1,
@@ -379,6 +385,8 @@
     "row": 3,
     "column": 3,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 12.0,
     "solvedSteps": [
       {
         "row": 2,
@@ -493,6 +501,8 @@
     "row": 3,
     "column": 4,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 16.0,
     "solvedSteps": [
       {
         "row": 2,
@@ -615,6 +625,8 @@
     "row": 3,
     "column": 4,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 18.0,
     "solvedSteps": [
       {
         "row": 2,
@@ -741,6 +753,8 @@
     "row": 3,
     "column": 4,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 20.0,
     "solvedSteps": [
       {
         "row": 0,
@@ -871,6 +885,8 @@
     "row": 4,
     "column": 4,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 22.0,
     "solvedSteps": [
       {
         "row": 0,
@@ -1005,6 +1021,8 @@
     "row": 4,
     "column": 4,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 24.0,
     "solvedSteps": [
       {
         "row": 0,
@@ -1143,6 +1161,8 @@
     "row": 4,
     "column": 4,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 24.0,
     "solvedSteps": [
       {
         "row": 3,
@@ -1281,6 +1301,8 @@
     "row": 4,
     "column": 4,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 26.0,
     "solvedSteps": [
       {
         "row": 0,
@@ -1423,6 +1445,8 @@
     "row": 4,
     "column": 4,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 26.0,
     "solvedSteps": [
       {
         "row": 3,
@@ -1565,6 +1589,8 @@
     "row": 4,
     "column": 4,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 28.0,
     "solvedSteps": [
       {
         "row": 0,
@@ -1711,6 +1737,8 @@
     "row": 5,
     "column": 4,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 28.0,
     "solvedSteps": [
       {
         "row": 4,
@@ -1857,6 +1885,8 @@
     "row": 5,
     "column": 4,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 28.0,
     "solvedSteps": [
       {
         "row": 4,
@@ -2003,6 +2033,8 @@
     "row": 5,
     "column": 4,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 28.0,
     "solvedSteps": [
       {
         "row": 0,
@@ -2149,6 +2181,8 @@
     "row": 5,
     "column": 4,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 30.0,
     "solvedSteps": [
       {
         "row": 0,
@@ -2299,6 +2333,8 @@
     "row": 5,
     "column": 4,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 30.0,
     "solvedSteps": [
       {
         "row": 4,
@@ -2449,6 +2485,8 @@
     "row": 5,
     "column": 4,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 30.0,
     "solvedSteps": [
       {
         "row": 0,
@@ -2599,6 +2637,8 @@
     "row": 5,
     "column": 4,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 30.0,
     "solvedSteps": [
       {
         "row": 0,
@@ -2749,6 +2789,8 @@
     "row": 5,
     "column": 4,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 30.0,
     "solvedSteps": [
       {
         "row": 1,
@@ -2899,6 +2941,8 @@
     "row": 5,
     "column": 4,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 30.0,
     "solvedSteps": [
       {
         "row": 3,
@@ -3049,6 +3093,8 @@
     "row": 5,
     "column": 4,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 30.0,
     "solvedSteps": [
       {
         "row": 4,
@@ -3199,6 +3245,8 @@
     "row": 5,
     "column": 4,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 30.0,
     "solvedSteps": [
       {
         "row": 2,
@@ -3349,6 +3397,8 @@
     "row": 5,
     "column": 4,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 30.0,
     "solvedSteps": [
       {
         "row": 3,
@@ -3499,6 +3549,8 @@
     "row": 5,
     "column": 4,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 30.0,
     "solvedSteps": [
       {
         "row": 1,
@@ -3649,6 +3701,8 @@
     "row": 5,
     "column": 4,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 32.0,
     "solvedSteps": [
       {
         "row": 0,
@@ -3803,6 +3857,8 @@
     "row": 5,
     "column": 4,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 32.0,
     "solvedSteps": [
       {
         "row": 4,
@@ -3957,6 +4013,8 @@
     "row": 5,
     "column": 4,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 32.0,
     "solvedSteps": [
       {
         "row": 4,
@@ -4111,6 +4169,8 @@
     "row": 5,
     "column": 4,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 32.0,
     "solvedSteps": [
       {
         "row": 0,
@@ -4265,6 +4325,8 @@
     "row": 5,
     "column": 4,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 32.0,
     "solvedSteps": [
       {
         "row": 3,
@@ -4419,6 +4481,8 @@
     "row": 5,
     "column": 4,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 32.0,
     "solvedSteps": [
       {
         "row": 4,
@@ -4573,6 +4637,8 @@
     "row": 5,
     "column": 4,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 32.0,
     "solvedSteps": [
       {
         "row": 3,
@@ -4727,6 +4793,8 @@
     "row": 5,
     "column": 4,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 32.0,
     "solvedSteps": [
       {
         "row": 0,
@@ -4881,6 +4949,8 @@
     "row": 5,
     "column": 4,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 32.0,
     "solvedSteps": [
       {
         "row": 0,
@@ -5035,6 +5105,8 @@
     "row": 5,
     "column": 4,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 32.0,
     "solvedSteps": [
       {
         "row": 0,
@@ -5189,6 +5261,8 @@
     "row": 5,
     "column": 4,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 34.0,
     "solvedSteps": [
       {
         "row": 4,
@@ -5347,6 +5421,8 @@
     "row": 5,
     "column": 4,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 34.0,
     "solvedSteps": [
       {
         "row": 0,
@@ -5505,6 +5581,8 @@
     "row": 5,
     "column": 4,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 34.0,
     "solvedSteps": [
       {
         "row": 4,
@@ -5663,6 +5741,8 @@
     "row": 5,
     "column": 4,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 34.0,
     "solvedSteps": [
       {
         "row": 4,
@@ -5821,6 +5901,8 @@
     "row": 5,
     "column": 4,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 34.0,
     "solvedSteps": [
       {
         "row": 4,
@@ -5979,6 +6061,8 @@
     "row": 5,
     "column": 4,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 34.0,
     "solvedSteps": [
       {
         "row": 4,
@@ -6137,6 +6221,8 @@
     "row": 5,
     "column": 4,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 34.0,
     "solvedSteps": [
       {
         "row": 0,
@@ -6295,6 +6381,8 @@
     "row": 5,
     "column": 4,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 34.0,
     "solvedSteps": [
       {
         "row": 4,
@@ -6453,6 +6541,8 @@
     "row": 5,
     "column": 4,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 34.0,
     "solvedSteps": [
       {
         "row": 0,
@@ -6611,6 +6701,8 @@
     "row": 5,
     "column": 4,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 36.0,
     "solvedSteps": [
       {
         "row": 4,
@@ -6773,6 +6865,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 38.0,
     "solvedSteps": [
       {
         "row": 3,
@@ -6939,6 +7033,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 38.0,
     "solvedSteps": [
       {
         "row": 4,
@@ -7105,6 +7201,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 38.0,
     "solvedSteps": [
       {
         "row": 3,
@@ -7271,6 +7369,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 38.0,
     "solvedSteps": [
       {
         "row": 0,
@@ -7437,6 +7537,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 38.0,
     "solvedSteps": [
       {
         "row": 4,
@@ -7603,6 +7705,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 38.0,
     "solvedSteps": [
       {
         "row": 4,
@@ -7769,6 +7873,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 38.0,
     "solvedSteps": [
       {
         "row": 1,
@@ -7935,6 +8041,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 38.0,
     "solvedSteps": [
       {
         "row": 1,
@@ -8101,6 +8209,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 38.0,
     "solvedSteps": [
       {
         "row": 0,
@@ -8267,6 +8377,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 38.0,
     "solvedSteps": [
       {
         "row": 4,
@@ -8433,6 +8545,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 38.0,
     "solvedSteps": [
       {
         "row": 4,
@@ -8599,6 +8713,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 38.0,
     "solvedSteps": [
       {
         "row": 4,
@@ -8765,6 +8881,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 38.0,
     "solvedSteps": [
       {
         "row": 0,
@@ -8931,6 +9049,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 38.0,
     "solvedSteps": [
       {
         "row": 0,
@@ -9097,6 +9217,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 38.0,
     "solvedSteps": [
       {
         "row": 4,
@@ -9263,6 +9385,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 38.0,
     "solvedSteps": [
       {
         "row": 0,
@@ -9429,6 +9553,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 38.0,
     "solvedSteps": [
       {
         "row": 1,
@@ -9595,6 +9721,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 38.0,
     "solvedSteps": [
       {
         "row": 4,
@@ -9761,6 +9889,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 38.0,
     "solvedSteps": [
       {
         "row": 3,
@@ -9927,6 +10057,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 38.0,
     "solvedSteps": [
       {
         "row": 4,
@@ -10093,6 +10225,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 38.0,
     "solvedSteps": [
       {
         "row": 0,
@@ -10259,6 +10393,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 38.0,
     "solvedSteps": [
       {
         "row": 3,
@@ -10425,6 +10561,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 38.0,
     "solvedSteps": [
       {
         "row": 4,
@@ -10591,6 +10729,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 38.0,
     "solvedSteps": [
       {
         "row": 0,
@@ -10757,6 +10897,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 38.0,
     "solvedSteps": [
       {
         "row": 4,
@@ -10923,6 +11065,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 38.0,
     "solvedSteps": [
       {
         "row": 4,
@@ -11089,6 +11233,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 38.0,
     "solvedSteps": [
       {
         "row": 1,
@@ -11255,6 +11401,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 38.0,
     "solvedSteps": [
       {
         "row": 4,
@@ -11421,6 +11569,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 38.0,
     "solvedSteps": [
       {
         "row": 0,
@@ -11587,6 +11737,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 38.0,
     "solvedSteps": [
       {
         "row": 0,
@@ -11753,6 +11905,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 38.0,
     "solvedSteps": [
       {
         "row": 3,
@@ -11919,6 +12073,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 38.0,
     "solvedSteps": [
       {
         "row": 4,
@@ -12085,6 +12241,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 38.0,
     "solvedSteps": [
       {
         "row": 0,
@@ -12251,6 +12409,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 38.0,
     "solvedSteps": [
       {
         "row": 4,
@@ -12417,6 +12577,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 38.0,
     "solvedSteps": [
       {
         "row": 4,
@@ -12583,6 +12745,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 38.0,
     "solvedSteps": [
       {
         "row": 0,
@@ -12749,6 +12913,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 38.0,
     "solvedSteps": [
       {
         "row": 1,
@@ -12915,6 +13081,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 38.0,
     "solvedSteps": [
       {
         "row": 4,
@@ -13081,6 +13249,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 38.0,
     "solvedSteps": [
       {
         "row": 1,
@@ -13247,6 +13417,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 38.0,
     "solvedSteps": [
       {
         "row": 4,
@@ -13413,6 +13585,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 38.0,
     "solvedSteps": [
       {
         "row": 4,
@@ -13579,6 +13753,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 38.0,
     "solvedSteps": [
       {
         "row": 1,
@@ -13745,6 +13921,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 38.0,
     "solvedSteps": [
       {
         "row": 4,
@@ -13911,6 +14089,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 38.0,
     "solvedSteps": [
       {
         "row": 1,
@@ -14077,6 +14257,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 38.0,
     "solvedSteps": [
       {
         "row": 0,
@@ -14243,6 +14425,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 38.0,
     "solvedSteps": [
       {
         "row": 3,
@@ -14409,6 +14593,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 38.0,
     "solvedSteps": [
       {
         "row": 3,
@@ -14575,6 +14761,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 38.0,
     "solvedSteps": [
       {
         "row": 4,
@@ -14741,6 +14929,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 38.0,
     "solvedSteps": [
       {
         "row": 3,
@@ -14907,6 +15097,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 38.0,
     "solvedSteps": [
       {
         "row": 0,
@@ -15073,6 +15265,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 38.0,
     "solvedSteps": [
       {
         "row": 3,
@@ -15239,6 +15433,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 38.0,
     "solvedSteps": [
       {
         "row": 0,
@@ -15405,6 +15601,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 38.0,
     "solvedSteps": [
       {
         "row": 0,
@@ -15571,6 +15769,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 38.0,
     "solvedSteps": [
       {
         "row": 0,
@@ -15737,6 +15937,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 38.0,
     "solvedSteps": [
       {
         "row": 4,
@@ -15903,6 +16105,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": [
       {
         "row": 4,
@@ -16073,6 +16277,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": [
       {
         "row": 0,
@@ -16243,6 +16449,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": [
       {
         "row": 4,
@@ -16413,6 +16621,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": [
       {
         "row": 4,
@@ -16583,6 +16793,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": [
       {
         "row": 0,
@@ -16753,6 +16965,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": [
       {
         "row": 0,
@@ -16923,6 +17137,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": [
       {
         "row": 1,
@@ -17093,6 +17309,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": [
       {
         "row": 0,
@@ -17263,6 +17481,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": [
       {
         "row": 3,
@@ -17433,6 +17653,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": [
       {
         "row": 4,
@@ -17603,6 +17825,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": [
       {
         "row": 1,
@@ -17773,6 +17997,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": [
       {
         "row": 4,
@@ -17943,6 +18169,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": [
       {
         "row": 0,
@@ -18113,6 +18341,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": [
       {
         "row": 4,
@@ -18283,6 +18513,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": [
       {
         "row": 0,
@@ -18453,6 +18685,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": [
       {
         "row": 3,
@@ -18623,6 +18857,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": [
       {
         "row": 0,
@@ -18793,6 +19029,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": [
       {
         "row": 1,
@@ -18963,6 +19201,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": [
       {
         "row": 4,
@@ -19133,6 +19373,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": [
       {
         "row": 0,
@@ -19303,6 +19545,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": [
       {
         "row": 0,
@@ -19473,6 +19717,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": [
       {
         "row": 4,
@@ -19643,6 +19889,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": [
       {
         "row": 4,
@@ -19813,6 +20061,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": [
       {
         "row": 3,
@@ -19983,6 +20233,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": [
       {
         "row": 0,
@@ -20153,6 +20405,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": [
       {
         "row": 4,
@@ -20323,6 +20577,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": [
       {
         "row": 0,
@@ -20493,6 +20749,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": [
       {
         "row": 3,
@@ -20663,6 +20921,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": [
       {
         "row": 4,
@@ -20833,6 +21093,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": [
       {
         "row": 0,
@@ -21003,6 +21265,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": [
       {
         "row": 4,
@@ -21173,6 +21437,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": [
       {
         "row": 1,
@@ -21343,6 +21609,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": [
       {
         "row": 0,
@@ -21513,6 +21781,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": [
       {
         "row": 4,
@@ -21683,6 +21953,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": [
       {
         "row": 0,
@@ -21853,6 +22125,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": [
       {
         "row": 4,
@@ -22023,6 +22297,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": [
       {
         "row": 0,
@@ -22193,6 +22469,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": [
       {
         "row": 4,
@@ -22363,6 +22641,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": [
       {
         "row": 0,
@@ -22533,6 +22813,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": [
       {
         "row": 4,
@@ -22703,6 +22985,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": [
       {
         "row": 4,
@@ -22873,6 +23157,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": [
       {
         "row": 0,
@@ -23043,6 +23329,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": [
       {
         "row": 1,
@@ -23213,6 +23501,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": [
       {
         "row": 0,
@@ -23383,6 +23673,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": [
       {
         "row": 4,
@@ -23553,6 +23845,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": [
       {
         "row": 0,
@@ -23723,6 +24017,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": [
       {
         "row": 1,
@@ -23893,6 +24189,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": [
       {
         "row": 4,
@@ -24063,6 +24361,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": [
       {
         "row": 3,
@@ -24233,6 +24533,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": [
       {
         "row": 4,
@@ -24403,6 +24705,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": [
       {
         "row": 0,
@@ -24573,6 +24877,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": [
       {
         "row": 4,
@@ -24743,6 +25049,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": [
       {
         "row": 0,
@@ -24913,6 +25221,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": [
       {
         "row": 4,
@@ -25083,6 +25393,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": [
       {
         "row": 4,
@@ -25253,6 +25565,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": [
       {
         "row": 4,
@@ -25423,6 +25737,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": [
       {
         "row": 4,
@@ -25593,6 +25909,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": [
       {
         "row": 0,
@@ -25763,6 +26081,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": [
       {
         "row": 1,
@@ -25933,6 +26253,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": [
       {
         "row": 0,
@@ -26103,6 +26425,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": [
       {
         "row": 3,
@@ -26273,6 +26597,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": [
       {
         "row": 0,
@@ -26443,6 +26769,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": [
       {
         "row": 4,
@@ -26613,6 +26941,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": [
       {
         "row": 0,
@@ -26783,6 +27113,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": [
       {
         "row": 4,
@@ -26953,6 +27285,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": [
       {
         "row": 0,
@@ -27123,6 +27457,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": [
       {
         "row": 0,
@@ -27293,6 +27629,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": [
       {
         "row": 0,
@@ -27463,6 +27801,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": [
       {
         "row": 0,
@@ -27633,6 +27973,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": [
       {
         "row": 1,
@@ -27803,6 +28145,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": [
       {
         "row": 4,
@@ -27973,6 +28317,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": [
       {
         "row": 0,
@@ -28143,6 +28489,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": [
       {
         "row": 4,
@@ -28313,6 +28661,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": [
       {
         "row": 4,
@@ -28483,6 +28833,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": [
       {
         "row": 3,
@@ -28653,6 +29005,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": [
       {
         "row": 4,
@@ -28823,6 +29177,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": [
       {
         "row": 0,
@@ -28993,6 +29349,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": [
       {
         "row": 3,
@@ -29163,6 +29521,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": [
       {
         "row": 0,
@@ -29333,6 +29693,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": [
       {
         "row": 4,
@@ -29503,6 +29865,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": [
       {
         "row": 0,
@@ -29673,6 +30037,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": [
       {
         "row": 3,
@@ -29843,6 +30209,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": [
       {
         "row": 4,
@@ -30013,6 +30381,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": [
       {
         "row": 1,
@@ -30183,6 +30553,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": [
       {
         "row": 0,
@@ -30353,6 +30725,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": [
       {
         "row": 1,
@@ -30523,6 +30897,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": [
       {
         "row": 0,
@@ -30693,6 +31069,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": [
       {
         "row": 0,
@@ -30863,6 +31241,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": [
       {
         "row": 2,
@@ -31033,6 +31413,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": [
       {
         "row": 4,
@@ -31203,6 +31585,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": [
       {
         "row": 0,
@@ -31373,6 +31757,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": [
       {
         "row": 0,
@@ -31543,6 +31929,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": [
       {
         "row": 1,
@@ -31713,6 +32101,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": []
   },
   {
@@ -31802,6 +32192,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": []
   },
   {
@@ -31891,6 +32283,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": []
   },
   {
@@ -31980,6 +32374,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": []
   },
   {
@@ -32069,6 +32465,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": []
   },
   {
@@ -32158,6 +32556,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": []
   },
   {
@@ -32247,6 +32647,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 40.0,
     "solvedSteps": [
       {
         "row": 3,
@@ -32417,6 +32819,8 @@
     "row": 5,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 38.0,
     "solvedSteps": [
       {
         "row": 4,
@@ -32583,6 +32987,8 @@
     "row": 5,
     "column": 6,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 48.0,
     "solvedSteps": [
       {
         "row": 3,
@@ -32769,6 +33175,8 @@
     "row": 5,
     "column": 6,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 46.0,
     "solvedSteps": []
   },
   {
@@ -32858,6 +33266,8 @@
     "row": 5,
     "column": 6,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 38.0,
     "solvedSteps": [
       {
         "row": 2,
@@ -33036,6 +33446,8 @@
     "row": 6,
     "column": 6,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 38.0,
     "solvedSteps": [
       {
         "row": 1,
@@ -33202,6 +33614,8 @@
     "row": 7,
     "column": 7,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 0.0,
     "solvedSteps": []
   },
   {
@@ -33291,6 +33705,8 @@
     "row": 5,
     "column": 6,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 0.0,
     "solvedSteps": []
   },
   {
@@ -33380,6 +33796,8 @@
     "row": 6,
     "column": 5,
     "difficulty": 0,
+    "isPrize": false,
+    "timeEstimated": 0.0,
     "solvedSteps": []
   }
 ]

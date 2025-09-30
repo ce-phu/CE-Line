@@ -54,6 +54,9 @@ TrailRenderer:
   m_ReflectionProbeUsage: 0
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -216,7 +219,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1168625008, guid: 533f26b23a68af94d815052ed5e9bc02, type: 3}
+  m_Sprite: {fileID: 1558996994, guid: 80c9f02140ba26c429aaa41d4492c125, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
